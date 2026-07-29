@@ -24,6 +24,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
     /clean online, all without waiting for a quote\./,
   );
   assert.match(html, /Animate the Caramel Cleaners closing logo/);
+  assert.match(html, /ui-arrow ui-arrow-up-right/);
+  assert.match(html, /ui-arrow ui-arrow-down/);
+  assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
   assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
   assert.match(html, /class="mobile-book-dock"/);
   assert.match(html, /Ready for a reset/);
@@ -59,6 +62,8 @@ test("renders a dedicated booking page with a safe missing-config state", async 
     /class="logo-mark-button logo-mark-header" href="\.\.\/" aria-label="Caramel Cleaners home"/,
   );
   assert.match(html, /Online booking is being connected/);
+  assert.match(html, /ui-arrow ui-arrow-down-left/);
+  assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
   assert.doesNotMatch(html, /https:\/\/example\.com|fake|placeholder/i);
 });
 
@@ -71,6 +76,8 @@ test("renders the post-booking confirmation route", async () => {
   );
   assert.match(html, /We received your booking/);
   assert.match(html, /confirmation with your appointment details/);
+  assert.match(html, /ui-arrow ui-arrow-up-right/);
+  assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
 });
 
 test("keeps native document scrolling available around interactive logos", async () => {

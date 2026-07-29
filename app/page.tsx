@@ -1,3 +1,4 @@
+import ArrowIcon from "./components/arrow-icon";
 import LogoMark from "./components/logo-mark";
 import SectionLink from "./components/section-link";
 
@@ -92,7 +93,7 @@ export default function Home() {
             href="./book/"
             data-analytics-event="book_now_click"
           >
-            Book now <span aria-hidden="true">↗</span>
+            Book now <ArrowIcon />
           </a>
         </header>
 
@@ -115,10 +116,10 @@ export default function Home() {
                   href="./book/"
                   data-analytics-event="book_now_click"
                 >
-                  Book now <span aria-hidden="true">↗</span>
+                  Book now <ArrowIcon />
                 </a>
                 <SectionLink className="text-link" targetId="how-it-works">
-                  See how it works <span aria-hidden="true">↓</span>
+                  See how it works <ArrowIcon direction="down" />
                 </SectionLink>
               </div>
             </div>
@@ -193,7 +194,7 @@ export default function Home() {
                     href="./book/"
                     data-analytics-event="book_now_click"
                   >
-                    Book now <span aria-hidden="true">↗</span>
+                    Book now <ArrowIcon />
                   </a>
                 </article>
               ))}
@@ -215,7 +216,7 @@ export default function Home() {
               href="./book/"
               data-analytics-event="book_now_click"
             >
-              Book your clean <span aria-hidden="true">↗</span>
+              Book your clean <ArrowIcon />
             </a>
           </section>
         </main>
@@ -241,7 +242,7 @@ export default function Home() {
           data-analytics-event="book_now_click"
           aria-label="Book your clean"
         >
-          Book now <span aria-hidden="true">↗</span>
+          Book now <ArrowIcon />
         </a>
       </aside>
     </>

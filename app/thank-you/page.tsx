@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ArrowIcon from "../components/arrow-icon";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -41,7 +42,7 @@ export default function ThankYouPage() {
           forward to making your home feel lighter.
         </p>
         <a className="button button-dark" href="../">
-          Return home <span aria-hidden="true">↗</span>
+          Return home <ArrowIcon />
         </a>
       </main>
     </div>

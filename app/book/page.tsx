@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ArrowIcon from "../components/arrow-icon";
 import BookingEmbed from "../components/booking-embed";
 import LogoMark from "../components/logo-mark";
 
@@ -51,7 +52,7 @@ export default function BookingPage() {
             </a>
           </div>
           <a className="text-link header-back-link" href="../#services">
-            Compare services <span aria-hidden="true">↙</span>
+            Compare services <ArrowIcon direction="down-left" />
           </a>
         </header>
 

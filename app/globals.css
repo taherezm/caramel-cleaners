@@ -51,6 +51,53 @@ img {
   max-width: 100%;
 }
 
+.ui-arrow {
+  --arrow-rotation: 0deg;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  flex: 0 0 auto;
+  transform: rotate(var(--arrow-rotation));
+  transform-origin: center;
+}
+
+.ui-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0.1em;
+  right: 0.1em;
+  top: calc(50% - 0.75px);
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.ui-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.08em;
+  width: 0.38em;
+  height: 0.38em;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.ui-arrow-up-right {
+  --arrow-rotation: -45deg;
+}
+
+.ui-arrow-down {
+  --arrow-rotation: 90deg;
+}
+
+.ui-arrow-down-left {
+  --arrow-rotation: 135deg;
+}
+
 .skip-link {
   position: fixed;
   z-index: 100;

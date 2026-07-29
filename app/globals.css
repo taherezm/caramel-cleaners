@@ -100,8 +100,7 @@ a:focus-visible {
   border-radius: 50%;
 }
 
-.brand-mark-frame img,
-.preview-mark-frame img {
+.brand-mark-frame img {
   position: absolute;
   inset: 50% auto auto 50%;
   width: 145%;
@@ -287,148 +286,76 @@ a:focus-visible {
   border-color: var(--caramel);
 }
 
-.booking-preview {
+.hero-brand-art {
   position: relative;
   width: 100%;
   max-width: 510px;
+  min-height: 560px;
   justify-self: end;
   overflow: hidden;
   border-radius: 28px;
-  background: var(--paper);
+  background:
+    linear-gradient(rgba(255, 253, 249, 0.16), rgba(255, 253, 249, 0.16)),
+    var(--warm-white);
   box-shadow: var(--shadow);
 }
 
-.booking-preview::before {
+.hero-brand-art::before {
   position: absolute;
-  top: -100px;
-  right: -120px;
-  width: 260px;
-  height: 260px;
+  inset: 24px;
+  border: 1px solid rgba(33, 30, 27, 0.08);
+  border-radius: 20px;
+  content: "";
+}
+
+.hero-brand-art::after {
+  position: absolute;
+  right: -72px;
+  bottom: -72px;
+  width: 240px;
+  height: 240px;
   border: 1px solid rgba(189, 110, 47, 0.18);
   border-radius: 50%;
   content: "";
 }
 
-.preview-brand {
-  min-height: 145px;
-  display: flex;
-  align-items: flex-start;
-  padding: 26px 28px;
-  background: var(--warm-white);
-}
-
-.preview-mark-frame {
-  position: relative;
-  width: 92px;
-  height: 92px;
+.hero-mark-frame {
+  position: absolute;
+  z-index: 1;
+  inset: 50% auto auto 50%;
+  width: min(90%, 500px);
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.preview-copy {
-  padding: 30px 30px 24px;
-  border-bottom: 1px solid var(--line);
+.hero-mark-frame img {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 145%;
+  max-width: none;
+  transform: translate(-50%, -50%);
 }
 
-.preview-copy p {
-  margin: 0 0 6px;
-  color: var(--caramel-dark);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.preview-copy h2 {
-  margin: 0;
-  font-size: clamp(28px, 3vw, 38px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-}
-
-.preview-field {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 14px;
-  padding: 24px 30px;
-  border-bottom: 1px solid var(--line);
-}
-
-.field-number {
-  color: var(--caramel);
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.field-label {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--ink-soft);
-  font-size: 12px;
-}
-
-.service-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.service-option {
-  padding: 8px 13px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink-soft);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.service-option.selected {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: white;
-}
-
-.home-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.home-row .field-label {
-  margin-bottom: 2px;
-}
-
-.home-row strong {
-  font-size: 14px;
-}
-
-.plus {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid var(--line);
+.hero-art-ring {
+  position: absolute;
+  border: 1px solid rgba(33, 30, 27, 0.07);
   border-radius: 50%;
 }
 
-.preview-action {
-  min-height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px 0 76px;
-  background: var(--caramel);
-  color: white;
-  font-size: 13px;
-  font-weight: 700;
-  transition: background-color 180ms ease;
+.hero-art-ring-one {
+  top: -90px;
+  right: -90px;
+  width: 230px;
+  height: 230px;
 }
 
-.preview-action:hover {
-  background: var(--caramel-dark);
+.hero-art-ring-two {
+  bottom: 62px;
+  left: -45px;
+  width: 130px;
+  height: 130px;
 }
 
 .promise-strip {
@@ -735,7 +662,7 @@ a:focus-visible {
     padding: 76px 0;
   }
 
-  .booking-preview {
+  .hero-brand-art {
     max-width: none;
     justify-self: stretch;
   }
@@ -816,29 +743,13 @@ a:focus-visible {
     width: 100%;
   }
 
-  .booking-preview {
+  .hero-brand-art {
+    min-height: 430px;
     border-radius: 22px;
   }
 
-  .preview-brand {
-    min-height: 120px;
-    padding: 22px;
-  }
-
-  .preview-mark-frame {
-    width: 76px;
-    height: 76px;
-  }
-
-  .preview-copy,
-  .preview-field {
-    padding-right: 22px;
-    padding-left: 22px;
-  }
-
-  .preview-action {
-    padding-right: 22px;
-    padding-left: 68px;
+  .hero-mark-frame {
+    width: min(88%, 430px);
   }
 
   .promise-strip {
@@ -927,14 +838,6 @@ a:focus-visible {
   .site-header .button::after {
     color: white;
     content: "↗";
-  }
-
-  .service-options {
-    gap: 6px;
-  }
-
-  .service-option {
-    padding: 7px 10px;
   }
 
   .footer-brand-name {

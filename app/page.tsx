@@ -63,7 +63,7 @@ export default function Home() {
             <a href="#how-it-works">How it works</a>
           </nav>
 
-          <a className="button button-small button-dark" href="#plan">
+          <a className="button button-small button-dark" href="#services">
             Plan a clean <span aria-hidden="true">↗</span>
           </a>
         </header>
@@ -82,56 +82,22 @@ export default function Home() {
               </p>
 
               <div className="hero-actions">
-                <a className="button button-caramel" href="#plan">
+                <a className="button button-caramel" href="#services">
                   Build your clean <span aria-hidden="true">↗</span>
                 </a>
-                <a className="text-link" href="#services">
-                  Explore services <span aria-hidden="true">↓</span>
+                <a className="text-link" href="#how-it-works">
+                  How it works <span aria-hidden="true">↓</span>
                 </a>
               </div>
 
             </div>
 
-            <div className="booking-preview">
-              <div className="preview-brand" aria-hidden="true">
-                <span className="preview-mark-frame">
-                  <img src="./brand-mark.png" alt="" />
-                </span>
-              </div>
-
-              <div className="preview-copy">
-                <p>Start your plan</p>
-                <h2>A clean that fits your home.</h2>
-              </div>
-
-              <div className="preview-field">
-                <span className="field-number">01</span>
-                <div>
-                  <span className="field-label">Choose a service</span>
-                  <div className="service-options" aria-label="Service preview">
-                    <span className="service-option selected">Regular</span>
-                    <span className="service-option">Deep</span>
-                    <span className="service-option">Move</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="preview-field">
-                <span className="field-number">02</span>
-                <div className="home-row">
-                  <div>
-                    <span className="field-label">Tell us about your home</span>
-                    <strong>Rooms &amp; priorities</strong>
-                  </div>
-                  <span className="plus" aria-hidden="true">
-                    +
-                  </span>
-                </div>
-              </div>
-
-              <a className="preview-action" href="#plan">
-                Continue your plan <span aria-hidden="true">→</span>
-              </a>
+            <div className="hero-brand-art" aria-hidden="true">
+              <span className="hero-mark-frame">
+                <img src="./brand-mark.png" alt="" />
+              </span>
+              <span className="hero-art-ring hero-art-ring-one" />
+              <span className="hero-art-ring hero-art-ring-two" />
             </div>
           </section>
 
@@ -151,9 +117,9 @@ export default function Home() {
             <div className="section-heading">
               <p className="eyebrow">
                 <span className="eyebrow-line" aria-hidden="true" />
-                Our services
+                Choose your service
               </p>
-              <h2>Start with the clean you need.</h2>
+              <h2>Choose your clean.</h2>
               <p>
                 Every home is different. Choose a starting point, then
                 personalize the rooms and details that matter to you.

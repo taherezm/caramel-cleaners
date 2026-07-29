@@ -17,6 +17,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /Move-In \/ Move-Out Clean/);
   assert.match(html, /Most popular/);
   assert.match(html, /href="\.\/book\/"/);
+  assert.match(html, /Play the Caramel Cleaners logo animation/);
+  assert.match(html, /Animate the Detailed \/ First Clean logo/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);
   assert.doesNotMatch(html, /Bedrooms|Next: Your home/);
 });
@@ -32,6 +34,7 @@ test("renders a dedicated booking page with a safe missing-config state", async 
   assert.match(html, /Upfront pricing/);
   assert.match(html, /Flexible scheduling/);
   assert.match(html, /Secure online booking/);
+  assert.match(html, /Animate the Caramel Cleaners booking logo/);
   assert.match(html, /Online booking is being connected/);
   assert.doesNotMatch(html, /https:\/\/example\.com|fake|placeholder/i);
 });

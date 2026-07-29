@@ -80,34 +80,160 @@ img {
   text-decoration: none;
 }
 
-.brand-mark-frame {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.brand-mark-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.18);
-}
-
 .brand-wordmark-frame {
   width: clamp(190px, 20vw, 282px);
   height: 54px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .brand-wordmark-frame img {
   width: 100%;
   height: auto;
+}
+
+.logo-mark-button {
+  --logo-size: 56px;
+  --logo-scale: 1.18;
+  --logo-spark-color: var(--caramel);
+  position: relative;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  display: block;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.logo-mark-crop {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgb(58 43 30 / 8%);
+}
+
+.logo-mark-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--logo-scale));
+  transition: transform 220ms ease;
+}
+
+.logo-mark-button:hover .logo-mark-image {
+  transform: scale(calc(var(--logo-scale) + 0.06)) rotate(4deg);
+}
+
+.logo-mark-button:focus-visible {
+  outline: 3px solid rgb(189 110 47 / 42%);
+  outline-offset: 5px;
+}
+
+.logo-mark-button::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 4%;
+  border: 2px solid var(--logo-spark-color);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.logo-spark {
+  position: absolute;
+  z-index: 3;
+  width: max(5px, calc(var(--logo-size) * 0.08));
+  height: max(5px, calc(var(--logo-size) * 0.08));
+  border-radius: 50%;
+  background: var(--logo-spark-color);
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.logo-spark-one {
+  top: -3%;
+  right: 6%;
+}
+
+.logo-spark-two {
+  right: -5%;
+  bottom: 18%;
+}
+
+.logo-spark-three {
+  bottom: 2%;
+  left: 2%;
+}
+
+.logo-mark-button.is-animating .logo-mark-image {
+  animation: caramel-logo-spin 900ms cubic-bezier(0.18, 0.78, 0.22, 1);
+}
+
+.logo-mark-button.is-animating::before {
+  animation: caramel-logo-ripple 720ms ease-out;
+}
+
+.logo-mark-button.is-animating .logo-spark-one {
+  animation: caramel-logo-spark 620ms 120ms ease-out;
+}
+
+.logo-mark-button.is-animating .logo-spark-two {
+  animation: caramel-logo-spark 620ms 210ms ease-out;
+}
+
+.logo-mark-button.is-animating .logo-spark-three {
+  animation: caramel-logo-spark 620ms 300ms ease-out;
+}
+
+@keyframes caramel-logo-spin {
+  0% {
+    transform: scale(var(--logo-scale)) rotate(0deg);
+  }
+  38% {
+    transform: scale(calc(var(--logo-scale) - 0.16)) rotate(260deg);
+  }
+  72% {
+    transform: scale(calc(var(--logo-scale) + 0.14)) rotate(590deg);
+  }
+  100% {
+    transform: scale(var(--logo-scale)) rotate(720deg);
+  }
+}
+
+@keyframes caramel-logo-ripple {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes caramel-logo-spark {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2) translate(4px, -6px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) translate(12px, -16px);
+  }
 }
 
 .site-nav {
@@ -257,24 +383,14 @@ summary:focus-visible {
     var(--paper-light);
 }
 
-.hero-mark-frame {
+.logo-mark-hero {
+  --logo-size: min(65%, 330px);
+  --logo-scale: 1.12;
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
-  width: min(65%, 330px);
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 18px 45px rgb(58 43 30 / 8%);
-}
-
-.hero-mark-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
 }
 
 .hero-art-ring {
@@ -401,6 +517,21 @@ summary:focus-visible {
   margin-bottom: 74px;
 }
 
+.service-identity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-mark-service {
+  --logo-size: 43px;
+  --logo-scale: 1.16;
+}
+
+.service-tier-featured .logo-mark-service {
+  --logo-spark-color: var(--white);
+}
+
 .service-tier-featured .service-number {
   color: var(--white);
 }
@@ -486,18 +617,9 @@ summary:focus-visible {
   box-shadow: var(--shadow);
 }
 
-.closing-mark {
-  width: 170px;
-  height: 170px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.closing-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
+.logo-mark-closing {
+  --logo-size: 170px;
+  --logo-scale: 1.12;
 }
 
 .closing-section p {
@@ -530,11 +652,17 @@ summary:focus-visible {
 .footer-brand-name {
   font-size: 20px;
   font-weight: 700;
+  text-decoration: none;
 }
 
-.footer-brand .brand-mark-frame {
-  width: 50px;
-  height: 50px;
+.footer-brand-name:hover,
+.footer-brand-name:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.logo-mark-footer {
+  --logo-size: 50px;
 }
 
 .site-footer p {
@@ -560,6 +688,19 @@ summary:focus-visible {
 .booking-intro {
   max-width: 940px;
   margin-bottom: 48px;
+}
+
+.booking-intro-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 42px;
+}
+
+.logo-mark-booking {
+  --logo-size: 108px;
+  --logo-scale: 1.12;
+  margin-top: 3px;
 }
 
 .section-kicker {
@@ -740,20 +881,10 @@ summary:focus-visible {
   text-align: center;
 }
 
-.confirmation-mark {
-  width: 125px;
-  height: 125px;
+.logo-mark-confirmation {
+  --logo-size: 125px;
+  --logo-scale: 1.12;
   margin: 0 auto 38px;
-  overflow: hidden;
-  border-radius: 50%;
-  box-shadow: var(--shadow);
-}
-
-.confirmation-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
 }
 
 .confirmation-main h1 {
@@ -821,9 +952,8 @@ summary:focus-visible {
     grid-template-columns: 145px 1fr;
   }
 
-  .closing-mark {
-    width: 135px;
-    height: 135px;
+  .logo-mark-closing {
+    --logo-size: 135px;
   }
 
   .closing-section .button {
@@ -845,9 +975,8 @@ summary:focus-visible {
     gap: 8px;
   }
 
-  .brand-mark-frame {
-    width: 42px;
-    height: 42px;
+  .logo-mark-header {
+    --logo-size: 42px;
   }
 
   .brand-wordmark-frame {
@@ -948,9 +1077,8 @@ summary:focus-visible {
     border-radius: 30px;
   }
 
-  .closing-mark {
-    width: 100px;
-    height: 100px;
+  .logo-mark-closing {
+    --logo-size: 100px;
     margin-bottom: 32px;
   }
 
@@ -970,9 +1098,8 @@ summary:focus-visible {
     font-size: 18px;
   }
 
-  .footer-brand .brand-mark-frame {
-    width: 42px;
-    height: 42px;
+  .logo-mark-footer {
+    --logo-size: 42px;
   }
 
   .compact-header .brand-wordmark-frame {
@@ -989,6 +1116,16 @@ summary:focus-visible {
 
   .booking-intro {
     margin-bottom: 34px;
+  }
+
+  .booking-intro-heading {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .logo-mark-booking {
+    --logo-size: 82px;
+    margin: 26px 0 0 auto;
   }
 
   .booking-trust {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
 
@@ -11,20 +12,24 @@ export default function ThankYouPage() {
   return (
     <div className="site-shell confirmation-shell">
       <header className="site-header compact-header">
-        <a className="brand" href="../" aria-label="Caramel Cleaners home">
-          <span className="brand-mark-frame" aria-hidden="true">
-            <img src="../brand-mark.png" alt="" />
-          </span>
-          <span className="brand-wordmark-frame">
+        <div className="brand">
+          <LogoMark src="../brand-mark.png" className="logo-mark-header" />
+          <a
+            className="brand-wordmark-frame"
+            href="../"
+            aria-label="Caramel Cleaners home"
+          >
             <img src="../brand-wordmark.png" alt="Caramel Cleaners" />
-          </span>
-        </a>
+          </a>
+        </div>
       </header>
 
       <main className="confirmation-main">
-        <div className="confirmation-mark" aria-hidden="true">
-          <img src="../brand-mark.png" alt="" />
-        </div>
+        <LogoMark
+          src="../brand-mark.png"
+          className="logo-mark-confirmation"
+          label="Animate the Caramel Cleaners confirmation logo"
+        />
         <p className="section-kicker">You’re all set</p>
         <h1>We received your booking.</h1>
         <p>

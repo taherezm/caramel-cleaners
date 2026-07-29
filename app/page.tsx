@@ -1,3 +1,5 @@
+import LogoMark from "./components/logo-mark";
+
 export const dynamic = "force-static";
 
 const processSteps = [
@@ -64,14 +66,16 @@ export default function Home() {
 
       <div className="site-shell" id="top">
         <header className="site-header">
-          <a className="brand" href="#top" aria-label="Caramel Cleaners home">
-            <span className="brand-mark-frame" aria-hidden="true">
-              <img src="./brand-mark.png" alt="" />
-            </span>
-            <span className="brand-wordmark-frame">
+          <div className="brand">
+            <LogoMark src="./brand-mark.png" className="logo-mark-header" />
+            <a
+              className="brand-wordmark-frame"
+              href="#top"
+              aria-label="Caramel Cleaners home"
+            >
               <img src="./brand-wordmark.png" alt="Caramel Cleaners" />
-            </span>
-          </a>
+            </a>
+          </div>
 
           <nav className="site-nav" aria-label="Primary navigation">
             <a href="#how-it-works">How it works</a>
@@ -114,10 +118,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-brand-art" aria-hidden="true">
-              <span className="hero-mark-frame">
-                <img src="./brand-mark.png" alt="" />
-              </span>
+            <div className="hero-brand-art">
+              <LogoMark
+                src="./brand-mark.png"
+                className="logo-mark-hero"
+                label="Animate the large Caramel Cleaners logo"
+              />
               <span className="hero-art-ring hero-art-ring-one" />
               <span className="hero-art-ring hero-art-ring-two" />
             </div>
@@ -157,7 +163,14 @@ export default function Home() {
                   key={service.title}
                 >
                   <div className="service-tier-top">
-                    <span className="service-number">{service.number}</span>
+                    <div className="service-identity">
+                      <LogoMark
+                        src="./brand-mark.png"
+                        className="logo-mark-service"
+                        label={`Animate the ${service.title} logo`}
+                      />
+                      <span className="service-number">{service.number}</span>
+                    </div>
                     {service.tag ? (
                       <span className="service-tag">{service.tag}</span>
                     ) : null}
@@ -185,9 +198,11 @@ export default function Home() {
           </section>
 
           <section className="closing-section">
-            <div className="closing-mark" aria-hidden="true">
-              <img src="./brand-mark.png" alt="" />
-            </div>
+            <LogoMark
+              src="./brand-mark.png"
+              className="logo-mark-closing"
+              label="Animate the Caramel Cleaners closing logo"
+            />
             <div>
               <p>Thoughtfully planned. Thoroughly cleaned.</p>
               <h2>Come home to more room to breathe.</h2>
@@ -203,12 +218,12 @@ export default function Home() {
         </main>
 
         <footer className="site-footer">
-          <a className="brand footer-brand" href="#top">
-            <span className="brand-mark-frame" aria-hidden="true">
-              <img src="./brand-mark.png" alt="" />
-            </span>
-            <span className="footer-brand-name">Caramel Cleaners</span>
-          </a>
+          <div className="brand footer-brand">
+            <LogoMark src="./brand-mark.png" className="logo-mark-footer" />
+            <a className="footer-brand-name" href="#top">
+              Caramel Cleaners
+            </a>
+          </div>
           <p>© 2026 Caramel Cleaners. All rights reserved.</p>
         </footer>
       </div>

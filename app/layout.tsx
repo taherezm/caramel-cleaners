@@ -4,19 +4,19 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://taherezm.github.io/caramel-cleaners/"),
   title: {
-    default: "Caramel Cleaners | Come Home to Clean",
+    default: "Caramel Cleaners | Build Your Clean",
     template: "%s | Caramel Cleaners",
   },
   description:
-    "Build a home clean around your space, your priorities, and your schedule with Caramel Cleaners.",
+    "Choose, personalize, and plan a home clean around your space with Caramel Cleaners.",
   icons: {
     icon: "brand-mark.png",
     apple: "brand-mark.png",
   },
   openGraph: {
-    title: "Caramel Cleaners | Come Home to Clean",
+    title: "Caramel Cleaners | Build Your Clean",
     description:
-      "A thoughtful home clean, planned around your space and your priorities.",
+      "Choose, personalize, and plan a home clean around your space.",
     type: "website",
     url: "https://taherezm.github.io/caramel-cleaners/",
     siteName: "Caramel Cleaners",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caramel Cleaners | Come Home to Clean",
+    title: "Caramel Cleaners | Build Your Clean",
     description:
-      "A thoughtful home clean, planned around your space and your priorities.",
+      "Choose, personalize, and plan a home clean around your space.",
     images: ["og.png"],
   },
 };

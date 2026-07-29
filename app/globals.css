@@ -17,15 +17,11 @@
 
 html {
   min-height: 100%;
-  overflow-x: clip;
-  overflow-y: auto;
-  overscroll-behavior-y: none;
 }
 
 body {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
-  overflow-x: clip;
   background: var(--paper);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;

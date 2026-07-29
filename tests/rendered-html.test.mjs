@@ -62,11 +62,24 @@ test("keeps native document scrolling available around interactive logos", async
     "utf8",
   );
 
-  assert.match(css, /overflow-y:\s*auto/);
   assert.match(css, /touch-action:\s*manipulation/);
   assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
+  assert.doesNotMatch(css, /overscroll-behavior-y/);
+  assert.doesNotMatch(css, /overflow-y:\s*auto/);
   assert.match(css, /caramel-logo-spin 1100ms/);
   assert.match(css, /rotate\(540deg\)/);
   assert.match(logoComponent, /event\.detail > 0/);
   assert.match(logoComponent, /logo\.blur\(\)/);
+});
+
+test("section links do not leave the document locked to a hash target", async () => {
+  const sectionLink = await readFile(
+    new URL("../app/components/section-link.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(sectionLink, /scrollIntoView/);
+  assert.match(sectionLink, /focus\(\{ preventScroll: true \}\)/);
+  assert.match(sectionLink, /history\.replaceState/);
+  assert.match(sectionLink, /location\.pathname/);
 });

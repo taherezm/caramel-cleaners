@@ -1,4 +1,5 @@
 import LogoMark from "./components/logo-mark";
+import SectionLink from "./components/section-link";
 
 export const dynamic = "force-static";
 
@@ -68,18 +69,18 @@ export default function Home() {
         <header className="site-header">
           <div className="brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-header" />
-            <a
+            <SectionLink
               className="brand-name"
-              href="#top"
-              aria-label="Caramel Cleaners home"
+              targetId="top"
+              ariaLabel="Caramel Cleaners home"
             >
               Caramel Cleaners
-            </a>
+            </SectionLink>
           </div>
 
           <nav className="site-nav" aria-label="Primary navigation">
-            <a href="#how-it-works">How it works</a>
-            <a href="#services">Services</a>
+            <SectionLink targetId="how-it-works">How it works</SectionLink>
+            <SectionLink targetId="services">Services</SectionLink>
           </nav>
 
           <a
@@ -112,9 +113,9 @@ export default function Home() {
                 >
                   Book now <span aria-hidden="true">↗</span>
                 </a>
-                <a className="text-link" href="#how-it-works">
+                <SectionLink className="text-link" targetId="how-it-works">
                   See how it works <span aria-hidden="true">↓</span>
-                </a>
+                </SectionLink>
               </div>
             </div>
 
@@ -128,7 +129,11 @@ export default function Home() {
               <span className="hero-art-ring hero-art-ring-two" />
             </div>
 
-            <ol className="process-steps" id="how-it-works">
+            <ol
+              className="process-steps"
+              id="how-it-works"
+              tabIndex={-1}
+            >
               {processSteps.map((step) => (
                 <li key={step.number}>
                   <span className="process-number">{step.number}</span>
@@ -145,6 +150,7 @@ export default function Home() {
             className="services-section"
             id="services"
             aria-labelledby="services-heading"
+            tabIndex={-1}
           >
             <div className="section-heading">
               <h2 id="services-heading">Start with the clean you need.</h2>
@@ -220,9 +226,9 @@ export default function Home() {
         <footer className="site-footer">
           <div className="brand footer-brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-footer" />
-            <a className="brand-name" href="#top">
+            <SectionLink className="brand-name" targetId="top">
               Caramel Cleaners
-            </a>
+            </SectionLink>
           </div>
           <p>© 2026 Caramel Cleaners. All rights reserved.</p>
         </footer>

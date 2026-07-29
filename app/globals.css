@@ -287,29 +287,6 @@ a:focus-visible {
   border-color: var(--caramel);
 }
 
-.hero-details {
-  margin: 40px 0 0;
-  padding: 24px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px 26px;
-  border-top: 1px solid var(--line);
-  list-style: none;
-  color: var(--ink-soft);
-  font-size: 13px;
-}
-
-.hero-details li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-details li span {
-  color: var(--caramel);
-  font-weight: 700;
-}
-
 .booking-preview {
   position: relative;
   width: 100%;
@@ -336,7 +313,6 @@ a:focus-visible {
   min-height: 145px;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   padding: 26px 28px;
   background: var(--warm-white);
 }
@@ -347,20 +323,6 @@ a:focus-visible {
   height: 92px;
   overflow: hidden;
   border-radius: 50%;
-}
-
-.preview-status {
-  position: relative;
-  z-index: 1;
-  padding: 7px 11px;
-  border: 1px solid rgba(33, 30, 27, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.48);
-  color: var(--ink-soft);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .preview-copy {

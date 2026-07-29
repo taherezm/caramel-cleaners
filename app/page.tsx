@@ -71,10 +71,6 @@ export default function Home() {
         <main id="main-content">
           <section className="hero" aria-labelledby="hero-heading">
             <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="eyebrow-line" aria-hidden="true" />
-                Home cleaning, made uncomplicated
-              </p>
               <h1 id="hero-heading">
                 Clean spaces.
                 <br />
@@ -94,17 +90,6 @@ export default function Home() {
                 </a>
               </div>
 
-              <ul className="hero-details" aria-label="Service benefits">
-                <li>
-                  <span aria-hidden="true">✓</span> Personalized
-                </li>
-                <li>
-                  <span aria-hidden="true">✓</span> Clear
-                </li>
-                <li>
-                  <span aria-hidden="true">✓</span> Easy to adjust
-                </li>
-              </ul>
             </div>
 
             <div className="booking-preview">
@@ -112,7 +97,6 @@ export default function Home() {
                 <span className="preview-mark-frame">
                   <img src="./brand-mark.png" alt="" />
                 </span>
-                <span className="preview-status">Booking hub</span>
               </div>
 
               <div className="preview-copy">

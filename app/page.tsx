@@ -106,7 +106,7 @@ export default function Home() {
               </h1>
               <p className="hero-lede">
                 Compare your options, customize the details, and book your
-                clean online—without waiting for a quote.
+                clean online, all without waiting for a quote.
               </p>
 
               <div className="hero-actions">
@@ -173,14 +173,7 @@ export default function Home() {
                   key={service.title}
                 >
                   <div className="service-tier-top">
-                    <div className="service-identity">
-                      <LogoMark
-                        src="./brand-mark.png"
-                        className="logo-mark-service"
-                        label={`Animate the ${service.title} logo`}
-                      />
-                      <span className="service-number">{service.number}</span>
-                    </div>
+                    <span className="service-number">{service.number}</span>
                     {service.tag ? (
                       <span className="service-tag">{service.tag}</span>
                     ) : null}

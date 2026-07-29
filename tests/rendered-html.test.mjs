@@ -18,7 +18,12 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /Most popular/);
   assert.match(html, /href="\.\/book\/"/);
   assert.match(html, /Play the Caramel Cleaners logo animation/);
-  assert.match(html, /Animate the Detailed \/ First Clean logo/);
+  assert.doesNotMatch(html, /Animate the .* Clean logo/);
+  assert.match(
+    html,
+    /clean online, all without waiting for a quote\./,
+  );
+  assert.match(html, /Animate the Caramel Cleaners closing logo/);
   assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
   assert.match(html, /class="mobile-book-dock"/);
   assert.match(html, /Ready for a reset/);

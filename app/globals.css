@@ -530,21 +530,6 @@ summary:focus-visible {
   margin-bottom: 74px;
 }
 
-.service-identity {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-mark-service {
-  --logo-size: 43px;
-  --logo-scale: 1.16;
-}
-
-.service-tier-featured .logo-mark-service {
-  --logo-spark-color: var(--white);
-}
-
 .service-tier-featured .service-number {
   color: var(--white);
 }
@@ -617,22 +602,24 @@ summary:focus-visible {
 }
 
 .closing-section {
-  min-height: 360px;
-  display: grid;
-  grid-template-columns: 190px 1fr auto;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 55px;
+  justify-content: center;
   margin-bottom: 110px;
   padding: 62px;
   overflow: hidden;
   border-radius: 44px;
   background: var(--paper-light);
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .logo-mark-closing {
-  --logo-size: 170px;
+  --logo-size: 150px;
   --logo-scale: 1.12;
+  margin: 0 auto 34px;
 }
 
 .closing-section p {
@@ -646,7 +633,7 @@ summary:focus-visible {
 
 .closing-section h2 {
   max-width: 560px;
-  margin: 0;
+  margin: 0 0 38px;
   font-size: clamp(38px, 4vw, 58px);
   font-weight: 400;
   letter-spacing: -0.05em;
@@ -953,16 +940,8 @@ summary:focus-visible {
     margin-top: 16px;
   }
 
-  .closing-section {
-    grid-template-columns: 145px 1fr;
-  }
-
   .logo-mark-closing {
-    --logo-size: 135px;
-  }
-
-  .closing-section .button {
-    grid-column: 2;
+    --logo-size: 125px;
   }
 }
 
@@ -1097,7 +1076,6 @@ summary:focus-visible {
   }
 
   .closing-section {
-    display: block;
     min-height: 0;
     margin-bottom: 70px;
     padding: 38px 28px;
@@ -1106,11 +1084,11 @@ summary:focus-visible {
 
   .logo-mark-closing {
     --logo-size: 100px;
-    margin-bottom: 32px;
+    margin: 0 auto 28px;
   }
 
   .closing-section h2 {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .site-footer {

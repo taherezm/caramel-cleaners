@@ -80,7 +80,8 @@ test("keeps native document scrolling available around interactive logos", async
   assert.doesNotMatch(css, /overscroll-behavior-y/);
   assert.doesNotMatch(css, /overflow-y:\s*auto/);
   assert.match(css, /caramel-logo-spin 1100ms/);
-  assert.match(css, /rotate\(540deg\)/);
+  assert.match(css, /rotate\(720deg\)/);
+  assert.doesNotMatch(css, /\n\s*52%\s*\{/);
   assert.match(logoComponent, /event\.detail > 0/);
   assert.match(logoComponent, /logo\.blur\(\)/);
 });

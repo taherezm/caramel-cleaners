@@ -37,7 +37,11 @@ export default function BookingPage() {
       <div className="site-shell booking-site-shell">
         <header className="site-header compact-header">
           <div className="brand">
-            <LogoMark src="../brand-mark.png" className="logo-mark-header" />
+            <LogoMark
+              src="../brand-mark.png"
+              className="logo-mark-header"
+              href="../"
+            />
             <a
               className="brand-name"
               href="../"

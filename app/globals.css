@@ -114,6 +114,7 @@ img {
   cursor: pointer;
   isolation: isolate;
   touch-action: manipulation;
+  text-decoration: none;
 }
 
 .logo-mark-crop {

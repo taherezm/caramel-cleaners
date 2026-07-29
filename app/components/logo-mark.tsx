@@ -6,12 +6,14 @@ type LogoMarkProps = {
   src: string;
   className?: string;
   label?: string;
+  href?: string;
 };
 
 export default function LogoMark({
   src,
   className = "",
-  label = "Play the Caramel Cleaners logo animation",
+  label,
+  href,
 }: LogoMarkProps) {
   const playAnimation = (event: MouseEvent<HTMLButtonElement>) => {
     const logo = event.currentTarget;
@@ -33,20 +35,39 @@ export default function LogoMark({
     }
   };
 
-  return (
-    <button
-      className={`logo-mark-button ${className}`.trim()}
-      type="button"
-      aria-label={label}
-      onClick={playAnimation}
-      onAnimationEnd={finishAnimation}
-    >
+  const artwork = (
+    <>
       <span className="logo-mark-crop" aria-hidden="true">
         <img className="logo-mark-image" src={src} alt="" />
       </span>
       <span className="logo-spark logo-spark-one" aria-hidden="true" />
       <span className="logo-spark logo-spark-two" aria-hidden="true" />
       <span className="logo-spark logo-spark-three" aria-hidden="true" />
+    </>
+  );
+  const classNames = `logo-mark-button ${className}`.trim();
+
+  if (href) {
+    return (
+      <a
+        className={classNames}
+        href={href}
+        aria-label={label ?? "Caramel Cleaners home"}
+      >
+        {artwork}
+      </a>
+    );
+  }
+
+  return (
+    <button
+      className={classNames}
+      type="button"
+      aria-label={label ?? "Play the Caramel Cleaners logo animation"}
+      onClick={playAnimation}
+      onAnimationEnd={finishAnimation}
+    >
+      {artwork}
     </button>
   );
 }

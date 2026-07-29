@@ -68,7 +68,11 @@ export default function Home() {
       <div className="site-shell" id="top">
         <header className="site-header">
           <div className="brand">
-            <LogoMark src="./brand-mark.png" className="logo-mark-header" />
+            <LogoMark
+              src="./brand-mark.png"
+              className="logo-mark-header"
+              href="./"
+            />
             <SectionLink
               className="brand-name"
               targetId="top"

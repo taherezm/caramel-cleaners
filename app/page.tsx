@@ -1,22 +1,57 @@
-import CleanBuilder from "./components/clean-builder";
-
 export const dynamic = "force-static";
 
 const processSteps = [
   {
     number: "01",
     title: "Choose your clean",
-    description: "Pick the service that best matches your home today.",
+    description: "Compare the three services and choose the right starting point.",
   },
   {
     number: "02",
-    title: "Make it yours",
-    description: "Add your home details and the areas that need extra care.",
+    title: "Tell us about your home",
+    description: "Share its size, bathrooms, condition, and any useful details.",
   },
   {
     number: "03",
-    title: "Choose a time",
-    description: "Review your plan, see availability, and book in one place.",
+    title: "See your price and book",
+    description: "Choose a date, review the total, and confirm securely online.",
+  },
+];
+
+const services = [
+  {
+    number: "01",
+    title: "Routine Clean",
+    description:
+      "A dependable reset for homes that receive regular professional care.",
+    includes: [
+      "Kitchen surfaces and appliance exteriors",
+      "Bathroom fixtures and surfaces",
+      "Dusting, floors, and a general room reset",
+    ],
+  },
+  {
+    number: "02",
+    title: "Detailed / First Clean",
+    description:
+      "A top-to-bottom refresh for first visits or spaces needing extra attention.",
+    tag: "Most popular",
+    includes: [
+      "Everything included in a Routine Clean",
+      "Baseboards, doors, trim, and detail areas",
+      "Extra attention to buildup throughout the home",
+    ],
+  },
+  {
+    number: "03",
+    title: "Move-In / Move-Out Clean",
+    description:
+      "A detailed clean designed for an empty home and a smoother transition.",
+    includes: [
+      "Detailed cleaning of an empty home",
+      "Inside empty cabinets and drawers",
+      "Kitchen, bathroom, floors, and baseboards",
+    ],
   },
 ];
 
@@ -40,11 +75,15 @@ export default function Home() {
 
           <nav className="site-nav" aria-label="Primary navigation">
             <a href="#how-it-works">How it works</a>
-            <a href="#book-clean">Build your clean</a>
+            <a href="#services">Services</a>
           </nav>
 
-          <a className="button button-small button-dark" href="#book-clean">
-            Start now <span aria-hidden="true">↗</span>
+          <a
+            className="button button-small button-dark"
+            href="./book/"
+            data-analytics-event="book_now_click"
+          >
+            Book now <span aria-hidden="true">↗</span>
           </a>
         </header>
 
@@ -57,13 +96,17 @@ export default function Home() {
                 <span>without the guesswork.</span>
               </h1>
               <p className="hero-lede">
-                See exactly how your clean works, shape it around your home, and
-                move from “I need help” to a clear plan in minutes.
+                Compare your options, customize the details, and book your
+                clean online—without waiting for a quote.
               </p>
 
               <div className="hero-actions">
-                <a className="button button-caramel" href="#book-clean">
-                  Build your clean <span aria-hidden="true">↗</span>
+                <a
+                  className="button button-caramel"
+                  href="./book/"
+                  data-analytics-event="book_now_click"
+                >
+                  Book now <span aria-hidden="true">↗</span>
                 </a>
                 <a className="text-link" href="#how-it-works">
                   See how it works <span aria-hidden="true">↓</span>
@@ -92,24 +135,53 @@ export default function Home() {
             </ol>
           </section>
 
-          <section className="builder-section" id="book-clean">
-            <div className="builder-intro">
-              <p>Ready when you are</p>
-              <h2>Build a clean around your home.</h2>
+          <section
+            className="services-section"
+            id="services"
+            aria-labelledby="services-heading"
+          >
+            <div className="section-heading">
+              <h2 id="services-heading">Start with the clean you need.</h2>
               <p>
-                Start with a service, add a few home details, and review your
-                plan without leaving the page.
+                Every home is different. Choose a starting point, then
+                personalize the rooms and details that matter to you.
               </p>
-              <div className="builder-assurance">
-                <span aria-hidden="true">✓</span>
-                <p>
-                  No commitment while you build. Pricing and scheduling will
-                  appear before you book.
-                </p>
-              </div>
             </div>
 
-            <CleanBuilder />
+            <div className="service-comparison">
+              {services.map((service) => (
+                <article
+                  className={
+                    service.tag ? "service-tier service-tier-featured" : "service-tier"
+                  }
+                  key={service.title}
+                >
+                  <div className="service-tier-top">
+                    <span className="service-number">{service.number}</span>
+                    {service.tag ? (
+                      <span className="service-tag">{service.tag}</span>
+                    ) : null}
+                  </div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <details>
+                    <summary>What’s included</summary>
+                    <ul>
+                      {service.includes.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </details>
+                  <a
+                    className="service-book-link"
+                    href="./book/"
+                    data-analytics-event="book_now_click"
+                  >
+                    Book now <span aria-hidden="true">↗</span>
+                  </a>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="closing-section">
@@ -120,8 +192,12 @@ export default function Home() {
               <p>Thoughtfully planned. Thoroughly cleaned.</p>
               <h2>Come home to more room to breathe.</h2>
             </div>
-            <a className="button button-dark" href="#book-clean">
-              Start your clean <span aria-hidden="true">↑</span>
+            <a
+              className="button button-dark"
+              href="./book/"
+              data-analytics-event="book_now_click"
+            >
+              Book your clean <span aria-hidden="true">↗</span>
             </a>
           </section>
         </main>

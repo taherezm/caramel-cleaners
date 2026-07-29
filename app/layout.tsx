@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
+import AnalyticsBridge from "./components/analytics-bridge";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://taherezm.github.io/caramel-cleaners/"),
   title: {
-    default: "Caramel Cleaners | Build Your Clean",
+    default: "Caramel Cleaners | Home Cleaning Made Simple",
     template: "%s | Caramel Cleaners",
   },
   description:
-    "Choose, personalize, and plan a home clean around your space with Caramel Cleaners.",
+    "Compare home cleaning services and book a clean that fits your home with Caramel Cleaners.",
   icons: {
     icon: "brand-mark.png",
     apple: "brand-mark.png",
   },
   openGraph: {
-    title: "Caramel Cleaners | Build Your Clean",
+    title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Choose, personalize, and plan a home clean around your space.",
+      "Compare home cleaning services and book a clean that fits your home.",
     type: "website",
     url: "https://taherezm.github.io/caramel-cleaners/",
     siteName: "Caramel Cleaners",
@@ -31,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caramel Cleaners | Build Your Clean",
+    title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Choose, personalize, and plan a home clean around your space.",
+      "Compare home cleaning services and book a clean that fits your home.",
     images: ["og.png"],
   },
 };
@@ -45,7 +46,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AnalyticsBridge />
+        {children}
+      </body>
     </html>
   );
 }

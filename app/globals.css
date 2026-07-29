@@ -85,18 +85,21 @@ img {
   text-decoration: none;
 }
 
-.brand-wordmark-frame {
-  width: clamp(190px, 20vw, 282px);
-  height: 54px;
-  display: flex;
+.brand-name {
+  display: inline-flex;
   align-items: center;
-  overflow: hidden;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
   text-decoration: none;
 }
 
-.brand-wordmark-frame img {
-  width: 100%;
-  height: auto;
+.brand-name:hover,
+.brand-name:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 .logo-mark-button {
@@ -132,11 +135,11 @@ img {
   height: 100%;
   object-fit: cover;
   transform: scale(var(--logo-scale));
-  transition: transform 220ms ease;
+  transition: transform 300ms cubic-bezier(0.22, 0.72, 0.22, 1);
 }
 
 .logo-mark-button:hover .logo-mark-image {
-  transform: scale(calc(var(--logo-scale) + 0.06)) rotate(4deg);
+  transform: scale(calc(var(--logo-scale) + 0.025)) rotate(2deg);
 }
 
 .logo-mark-button:focus-visible {
@@ -182,37 +185,35 @@ img {
 }
 
 .logo-mark-button.is-animating .logo-mark-image {
-  animation: caramel-logo-spin 900ms cubic-bezier(0.18, 0.78, 0.22, 1);
+  animation: caramel-logo-spin 1100ms cubic-bezier(0.22, 0.72, 0.2, 1);
+  will-change: transform;
 }
 
 .logo-mark-button.is-animating::before {
-  animation: caramel-logo-ripple 720ms ease-out;
+  animation: caramel-logo-ripple 900ms cubic-bezier(0.2, 0.65, 0.25, 1);
 }
 
 .logo-mark-button.is-animating .logo-spark-one {
-  animation: caramel-logo-spark 620ms 120ms ease-out;
+  animation: caramel-logo-spark 760ms 150ms ease-out;
 }
 
 .logo-mark-button.is-animating .logo-spark-two {
-  animation: caramel-logo-spark 620ms 210ms ease-out;
+  animation: caramel-logo-spark 760ms 250ms ease-out;
 }
 
 .logo-mark-button.is-animating .logo-spark-three {
-  animation: caramel-logo-spark 620ms 300ms ease-out;
+  animation: caramel-logo-spark 760ms 350ms ease-out;
 }
 
 @keyframes caramel-logo-spin {
   0% {
     transform: scale(var(--logo-scale)) rotate(0deg);
   }
-  38% {
-    transform: scale(calc(var(--logo-scale) - 0.16)) rotate(260deg);
-  }
-  72% {
-    transform: scale(calc(var(--logo-scale) + 0.14)) rotate(590deg);
+  52% {
+    transform: scale(calc(var(--logo-scale) + 0.035)) rotate(300deg);
   }
   100% {
-    transform: scale(var(--logo-scale)) rotate(720deg);
+    transform: scale(var(--logo-scale)) rotate(540deg);
   }
 }
 
@@ -655,18 +656,6 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-.footer-brand-name {
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.footer-brand-name:hover,
-.footer-brand-name:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
 .logo-mark-footer {
   --logo-size: 50px;
 }
@@ -985,11 +974,6 @@ summary:focus-visible {
     --logo-size: 42px;
   }
 
-  .brand-wordmark-frame {
-    width: 156px;
-    height: 42px;
-  }
-
   .button-small {
     min-height: 46px;
     gap: 10px;
@@ -1100,16 +1084,12 @@ summary:focus-visible {
     gap: 22px;
   }
 
-  .footer-brand-name {
+  .brand-name {
     font-size: 18px;
   }
 
   .logo-mark-footer {
     --logo-size: 42px;
-  }
-
-  .compact-header .brand-wordmark-frame {
-    width: 150px;
   }
 
   .header-back-link {
@@ -1190,12 +1170,8 @@ summary:focus-visible {
 }
 
 @media (max-width: 470px) {
-  .brand-wordmark-frame {
-    display: none;
-  }
-
-  .compact-header .brand-wordmark-frame {
-    display: flex;
+  .compact-header .brand-name {
+    font-size: 17px;
   }
 
   .header-back-link {

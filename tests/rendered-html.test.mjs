@@ -19,6 +19,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /href="\.\/book\/"/);
   assert.match(html, /Play the Caramel Cleaners logo animation/);
   assert.match(html, /Animate the Detailed \/ First Clean logo/);
+  assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
+  assert.doesNotMatch(html, /brand-wordmark\.png/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);
   assert.doesNotMatch(html, /Bedrooms|Next: Your home/);
 });
@@ -63,6 +65,8 @@ test("keeps native document scrolling available around interactive logos", async
   assert.match(css, /overflow-y:\s*auto/);
   assert.match(css, /touch-action:\s*manipulation/);
   assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
+  assert.match(css, /caramel-logo-spin 1100ms/);
+  assert.match(css, /rotate\(540deg\)/);
   assert.match(logoComponent, /event\.detail > 0/);
   assert.match(logoComponent, /logo\.blur\(\)/);
 });

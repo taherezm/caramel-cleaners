@@ -69,11 +69,11 @@ export default function Home() {
           <div className="brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-header" />
             <a
-              className="brand-wordmark-frame"
+              className="brand-name"
               href="#top"
               aria-label="Caramel Cleaners home"
             >
-              <img src="./brand-wordmark.png" alt="Caramel Cleaners" />
+              Caramel Cleaners
             </a>
           </div>
 
@@ -220,7 +220,7 @@ export default function Home() {
         <footer className="site-footer">
           <div className="brand footer-brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-footer" />
-            <a className="footer-brand-name" href="#top">
+            <a className="brand-name" href="#top">
               Caramel Cleaners
             </a>
           </div>

@@ -39,11 +39,11 @@ export default function BookingPage() {
           <div className="brand">
             <LogoMark src="../brand-mark.png" className="logo-mark-header" />
             <a
-              className="brand-wordmark-frame"
+              className="brand-name"
               href="../"
               aria-label="Caramel Cleaners home"
             >
-              <img src="../brand-wordmark.png" alt="Caramel Cleaners" />
+              Caramel Cleaners
             </a>
           </div>
           <a className="text-link header-back-link" href="../#services">
@@ -85,7 +85,7 @@ export default function BookingPage() {
         <footer className="site-footer booking-footer">
           <div className="brand footer-brand">
             <LogoMark src="../brand-mark.png" className="logo-mark-footer" />
-            <a className="footer-brand-name" href="../">
+            <a className="brand-name" href="../">
               Caramel Cleaners
             </a>
           </div>

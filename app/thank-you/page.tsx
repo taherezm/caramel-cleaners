@@ -15,11 +15,11 @@ export default function ThankYouPage() {
         <div className="brand">
           <LogoMark src="../brand-mark.png" className="logo-mark-header" />
           <a
-            className="brand-wordmark-frame"
+            className="brand-name"
             href="../"
             aria-label="Caramel Cleaners home"
           >
-            <img src="../brand-wordmark.png" alt="Caramel Cleaners" />
+            Caramel Cleaners
           </a>
         </div>
       </header>

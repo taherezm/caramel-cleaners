@@ -238,10 +238,7 @@ export default function Home() {
             </span>
             <span className="footer-brand-name">Caramel Cleaners</span>
           </a>
-          <p>A better way to come home to clean.</p>
-          <a href="#top">
-            Back to top <span aria-hidden="true">↑</span>
-          </a>
+          <p>© 2026 Caramel Cleaners. All rights reserved.</p>
         </footer>
       </div>
     </>

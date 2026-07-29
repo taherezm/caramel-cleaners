@@ -115,10 +115,6 @@ export default function Home() {
 
           <section className="section services-section" id="services">
             <div className="section-heading">
-              <p className="eyebrow">
-                <span className="eyebrow-line" aria-hidden="true" />
-                Choose your service
-              </p>
               <h2>Choose your clean.</h2>
               <p>
                 Every home is different. Choose a starting point, then

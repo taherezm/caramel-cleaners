@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   },
   description:
     "Build a home clean around your space, your priorities, and your schedule with Caramel Cleaners.",
+  icons: {
+    icon: "brand-mark.png",
+    apple: "brand-mark.png",
+  },
   openGraph: {
     title: "Caramel Cleaners | Come Home to Clean",
     description:

@@ -8,8 +8,10 @@ test("renders the Caramel Cleaners homepage as static HTML", async () => {
   const html = await readFile(output, "utf8");
 
   assert.match(html, /<title>Caramel Cleaners \| Come Home to Clean<\/title>/i);
-  assert.match(html, /Come home/);
+  assert.match(html, /Clean spaces/);
   assert.match(html, /Caramel Cleaners/);
+  assert.match(html, /brand-wordmark\.png/);
+  assert.match(html, /brand-mark\.png/);
   assert.match(html, /Regular clean/);
   assert.match(html, /Deep clean/);
   assert.match(html, /Move clean/);

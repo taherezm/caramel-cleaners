@@ -1,5 +1,45 @@
 export const dynamic = "force-static";
 
+const services = [
+  {
+    number: "01",
+    title: "Regular clean",
+    description:
+      "A dependable reset for kitchens, bathrooms, bedrooms, and shared spaces.",
+    tag: "Most popular",
+  },
+  {
+    number: "02",
+    title: "Deep clean",
+    description:
+      "A detailed top-to-bottom refresh for the places that need extra attention.",
+  },
+  {
+    number: "03",
+    title: "Move clean",
+    description:
+      "A thorough clean for the home you are leaving or the one you are entering.",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Choose your clean",
+    description: "Start with the service that best matches your home today.",
+  },
+  {
+    number: "02",
+    title: "Make it yours",
+    description: "Add the rooms, details, and priorities you want us to focus on.",
+  },
+  {
+    number: "03",
+    title: "Pick your time",
+    description: "Choose a date that works and review your clean in one place.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -10,10 +50,12 @@ export default function Home() {
       <div className="site-shell" id="top">
         <header className="site-header">
           <a className="brand" href="#top" aria-label="Caramel Cleaners home">
-            <span className="brand-mark" aria-hidden="true">
-              C
+            <span className="brand-mark-frame" aria-hidden="true">
+              <img src="./brand-mark.png" alt="" />
             </span>
-            <span className="brand-name">Caramel Cleaners</span>
+            <span className="brand-wordmark-frame">
+              <img src="./brand-wordmark.png" alt="Caramel Cleaners" />
+            </span>
           </a>
 
           <nav className="site-nav" aria-label="Primary navigation">
@@ -21,8 +63,8 @@ export default function Home() {
             <a href="#how-it-works">How it works</a>
           </nav>
 
-          <a className="button button-small button-outline" href="#plan">
-            Plan a clean
+          <a className="button button-small button-dark" href="#plan">
+            Plan a clean <span aria-hidden="true">↗</span>
           </a>
         </header>
 
@@ -30,173 +72,141 @@ export default function Home() {
           <section className="hero" aria-labelledby="hero-heading">
             <div className="hero-copy">
               <p className="eyebrow">
-                <span aria-hidden="true">✦</span> Cleaning, thoughtfully planned
+                <span className="eyebrow-line" aria-hidden="true" />
+                Home cleaning, made uncomplicated
               </p>
               <h1 id="hero-heading">
-                Come home
+                Clean spaces.
                 <br />
-                to <em>clean.</em>
+                <span>Clear head.</span>
               </h1>
               <p className="hero-lede">
                 Build a clean around your home, your priorities, and your
-                schedule. Caramel Cleaners makes every detail feel simple.
+                schedule. Caramel Cleaners keeps every step simple.
               </p>
 
               <div className="hero-actions">
-                <a className="button button-primary" href="#plan">
+                <a className="button button-caramel" href="#plan">
                   Build your clean <span aria-hidden="true">↗</span>
                 </a>
-                <a className="text-link" href="#how-it-works">
-                  See how it works <span aria-hidden="true">↓</span>
+                <a className="text-link" href="#services">
+                  Explore services <span aria-hidden="true">↓</span>
                 </a>
               </div>
 
-              <ul className="hero-details" aria-label="Booking benefits">
+              <ul className="hero-details" aria-label="Service benefits">
                 <li>
-                  <span className="detail-dot" aria-hidden="true" />
-                  Personalized plan
+                  <span aria-hidden="true">✓</span> Personalized
                 </li>
                 <li>
-                  <span className="detail-dot" aria-hidden="true" />
-                  Clear before you book
+                  <span aria-hidden="true">✓</span> Clear
                 </li>
                 <li>
-                  <span className="detail-dot" aria-hidden="true" />
-                  Easy to adjust
+                  <span aria-hidden="true">✓</span> Easy to adjust
                 </li>
               </ul>
             </div>
 
-            <div className="hero-visual" aria-label="Preview of a custom clean">
-              <div className="sun-disc" aria-hidden="true" />
-              <div className="orbit orbit-one" aria-hidden="true" />
-              <div className="orbit orbit-two" aria-hidden="true" />
-              <span className="sparkle sparkle-one" aria-hidden="true">
-                ✦
-              </span>
-              <span className="sparkle sparkle-two" aria-hidden="true">
-                ✦
-              </span>
+            <div className="booking-preview">
+              <div className="preview-brand" aria-hidden="true">
+                <span className="preview-mark-frame">
+                  <img src="./brand-mark.png" alt="" />
+                </span>
+                <span className="preview-status">Booking hub</span>
+              </div>
 
-              <div className="clean-card">
-                <div className="clean-card-header">
-                  <div>
-                    <p>Your clean</p>
-                    <h2>Made for home</h2>
-                  </div>
-                  <span className="clean-card-step">01</span>
-                </div>
+              <div className="preview-copy">
+                <p>Start your plan</p>
+                <h2>A clean that fits your home.</h2>
+              </div>
 
-                <div className="clean-card-body">
-                  <p className="field-label">Choose a starting point</p>
-                  <div className="service-options">
-                    <span className="service-option selected">
-                      <span aria-hidden="true">✦</span> Regular
-                    </span>
+              <div className="preview-field">
+                <span className="field-number">01</span>
+                <div>
+                  <span className="field-label">Choose a service</span>
+                  <div className="service-options" aria-label="Service preview">
+                    <span className="service-option selected">Regular</span>
                     <span className="service-option">Deep</span>
                     <span className="service-option">Move</span>
                   </div>
-
-                  <div className="home-summary">
-                    <div>
-                      <span className="summary-label">Your home</span>
-                      <strong>Tailored room by room</strong>
-                    </div>
-                    <span className="summary-icon" aria-hidden="true">
-                      +
-                    </span>
-                  </div>
-
-                  <div className="clean-note">
-                    <span className="note-icon" aria-hidden="true">
-                      ✓
-                    </span>
-                    <p>
-                      Your estimate updates as you personalize every detail.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="clean-card-footer">
-                  <span>Continue</span>
-                  <span aria-hidden="true">→</span>
                 </div>
               </div>
+
+              <div className="preview-field">
+                <span className="field-number">02</span>
+                <div className="home-row">
+                  <div>
+                    <span className="field-label">Tell us about your home</span>
+                    <strong>Rooms &amp; priorities</strong>
+                  </div>
+                  <span className="plus" aria-hidden="true">
+                    +
+                  </span>
+                </div>
+              </div>
+
+              <a className="preview-action" href="#plan">
+                Continue your plan <span aria-hidden="true">→</span>
+              </a>
             </div>
           </section>
 
           <div className="promise-strip" aria-label="Our approach">
-            <span>Simple to plan</span>
-            <span aria-hidden="true">✦</span>
-            <span>Easy to personalize</span>
-            <span aria-hidden="true">✦</span>
-            <span>A better way to clean</span>
+            <span>Easy to plan</span>
+            <span className="strip-mark" aria-hidden="true">
+              C
+            </span>
+            <span>Thoughtfully detailed</span>
+            <span className="strip-mark" aria-hidden="true">
+              C
+            </span>
+            <span>Made for your home</span>
           </div>
 
           <section className="section services-section" id="services">
             <div className="section-heading">
-              <p className="eyebrow">Choose your starting point</p>
-              <h2>A clean for every kind of day.</h2>
+              <p className="eyebrow">
+                <span className="eyebrow-line" aria-hidden="true" />
+                Our services
+              </p>
+              <h2>Start with the clean you need.</h2>
               <p>
-                Start with the service that fits, then make it yours with the
-                rooms and details that matter most.
+                Every home is different. Choose a starting point, then
+                personalize the rooms and details that matter to you.
               </p>
             </div>
 
             <div className="service-grid">
-              <article className="service-card service-card-featured">
-                <div className="service-card-top">
-                  <span className="service-number">01</span>
-                  <span className="service-tag">Most popular</span>
-                </div>
-                <div>
-                  <h3>Regular clean</h3>
-                  <p>
-                    A dependable reset for the spaces you live in every day.
-                  </p>
-                </div>
-                <a href="#plan" aria-label="Plan a regular clean">
-                  Plan this clean <span aria-hidden="true">↗</span>
-                </a>
-              </article>
-
-              <article className="service-card">
-                <div className="service-card-top">
-                  <span className="service-number">02</span>
-                </div>
-                <div>
-                  <h3>Deep clean</h3>
-                  <p>
-                    Extra attention for the details that need a thorough
-                    refresh.
-                  </p>
-                </div>
-                <a href="#plan" aria-label="Plan a deep clean">
-                  Plan this clean <span aria-hidden="true">↗</span>
-                </a>
-              </article>
-
-              <article className="service-card">
-                <div className="service-card-top">
-                  <span className="service-number">03</span>
-                </div>
-                <div>
-                  <h3>Move clean</h3>
-                  <p>
-                    A fresh beginning for the home you are leaving or entering.
-                  </p>
-                </div>
-                <a href="#plan" aria-label="Plan a move clean">
-                  Plan this clean <span aria-hidden="true">↗</span>
-                </a>
-              </article>
+              {services.map((service) => (
+                <article
+                  className={`service-card${service.tag ? " service-card-featured" : ""}`}
+                  key={service.number}
+                >
+                  <div className="service-card-top">
+                    <span className="service-number">{service.number}</span>
+                    {service.tag ? (
+                      <span className="service-tag">{service.tag}</span>
+                    ) : null}
+                  </div>
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
+                  <a href="#plan" aria-label={`Plan a ${service.title}`}>
+                    Plan this clean <span aria-hidden="true">↗</span>
+                  </a>
+                </article>
+              ))}
             </div>
           </section>
 
           <section className="section how-section" id="how-it-works">
             <div className="how-intro">
-              <p className="eyebrow eyebrow-light">A simpler clean</p>
-              <h2>From your to-do list to done.</h2>
+              <p className="eyebrow eyebrow-light">
+                <span className="eyebrow-line" aria-hidden="true" />
+                How it works
+              </p>
+              <h2>From your list to done.</h2>
               <p>
                 Tell us what your home needs. We turn your choices into one
                 clear plan.
@@ -204,49 +214,33 @@ export default function Home() {
             </div>
 
             <ol className="steps">
-              <li>
-                <span className="step-number">01</span>
-                <div>
-                  <h3>Choose your clean</h3>
-                  <p>Pick the service that best matches your home right now.</p>
-                </div>
-              </li>
-              <li>
-                <span className="step-number">02</span>
-                <div>
-                  <h3>Make it yours</h3>
-                  <p>
-                    Add the rooms, details, and extras you want us to focus on.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <span className="step-number">03</span>
-                <div>
-                  <h3>Pick your time</h3>
-                  <p>
-                    Choose a date that works and confirm everything in one
-                    place.
-                  </p>
-                </div>
-              </li>
+              {steps.map((step) => (
+                <li key={step.number}>
+                  <span className="step-number">{step.number}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                </li>
+              ))}
             </ol>
           </section>
 
           <section className="plan-section" id="plan">
-            <div className="plan-art" aria-hidden="true">
-              <span className="plan-ring plan-ring-one" />
-              <span className="plan-ring plan-ring-two" />
-              <span className="plan-sparkle">✦</span>
+            <div className="plan-mark" aria-hidden="true">
+              <img src="./brand-mark.png" alt="" />
             </div>
             <div className="plan-copy">
-              <p className="eyebrow">Your home. Your clean.</p>
-              <h2>Ready for a little more room to breathe?</h2>
+              <p className="eyebrow">
+                <span className="eyebrow-line" aria-hidden="true" />
+                Your home. Your clean.
+              </p>
+              <h2>More room to breathe is on the way.</h2>
               <p>
-                Online planning and booking are coming next. Soon, you will be
+                Online planning and booking are coming next. Soon you will be
                 able to shape every detail of your clean right here.
               </p>
-              <button className="button button-primary" type="button" disabled>
+              <button className="button button-dark" type="button" disabled>
                 Online booking coming soon
               </button>
             </div>
@@ -255,13 +249,15 @@ export default function Home() {
 
         <footer className="site-footer">
           <a className="brand footer-brand" href="#top">
-            <span className="brand-mark" aria-hidden="true">
-              C
+            <span className="brand-mark-frame" aria-hidden="true">
+              <img src="./brand-mark.png" alt="" />
             </span>
-            <span className="brand-name">Caramel Cleaners</span>
+            <span className="footer-brand-name">Caramel Cleaners</span>
           </a>
-          <p>A thoughtful clean, made simple.</p>
-          <p>© 2026 Caramel Cleaners</p>
+          <p>A better way to come home to clean.</p>
+          <a href="#top">
+            Back to top <span aria-hidden="true">↑</span>
+          </a>
         </footer>
       </div>
     </>

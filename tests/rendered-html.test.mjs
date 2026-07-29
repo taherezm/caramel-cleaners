@@ -49,3 +49,20 @@ test("renders the post-booking confirmation route", async () => {
   assert.match(html, /We received your booking/);
   assert.match(html, /confirmation with your appointment details/);
 });
+
+test("keeps native document scrolling available around interactive logos", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+  const logoComponent = await readFile(
+    new URL("../app/components/logo-mark.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /overflow-y:\s*auto/);
+  assert.match(css, /touch-action:\s*manipulation/);
+  assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
+  assert.match(logoComponent, /event\.detail > 0/);
+  assert.match(logoComponent, /logo\.blur\(\)/);
+});

@@ -19,6 +19,12 @@ export default function LogoMark({
     logo.classList.remove("is-animating");
     void logo.offsetWidth;
     logo.classList.add("is-animating");
+
+    // Pointer users should return immediately to the document scroll context.
+    // Keyboard activation keeps focus so the control remains accessible.
+    if (event.detail > 0) {
+      logo.blur();
+    }
   };
 
   const finishAnimation = (event: AnimationEvent<HTMLButtonElement>) => {

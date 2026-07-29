@@ -30,6 +30,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /site\.webmanifest/);
   assert.match(html, /apple-mobile-web-app-capable/);
   assert.match(html, /theme-color/);
+  assert.match(html, /og\.png\?v=text-only-20260728/);
+  assert.match(html, /property="og:image:alt" content="Caramel Cleaners"/);
+  assert.doesNotMatch(html, /Come home to clean/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);
   assert.doesNotMatch(html, /Bedrooms|Next: Your home/);
 });

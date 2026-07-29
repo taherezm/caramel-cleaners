@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     siteName: "Caramel Cleaners",
     images: [
       {
-        url: "og.png",
+        url: "og.png?v=text-only-20260728",
         width: 1200,
         height: 630,
-        alt: "Caramel Cleaners — Come home to clean.",
+        alt: "Caramel Cleaners",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
       "Compare home cleaning services and book a clean that fits your home.",
-    images: ["og.png"],
+    images: ["og.png?v=text-only-20260728"],
   },
 };
 

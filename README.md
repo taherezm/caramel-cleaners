@@ -2,7 +2,13 @@
 
 Primary development repository for the Caramel Cleaners website.
 
-## Development
+## Local development
 
-Website setup and local development instructions will be added as the project is built.
+Install dependencies and start the preview:
 
+```bash
+pnpm install
+pnpm dev
+```
+
+The site is built as a static export and deployed to GitHub Pages from `main`.

@@ -1,22 +1,29 @@
 # Dependencies
 node_modules/
+.pnpm-store/
 
 # Build output
-dist/
-build/
 .next/
+.vinext/
+dist/
 out/
+coverage/
 
 # Local environment files
 .env
 .env.*
 !.env.example
 
-# Logs
+# Logs and local runtime state
 *.log
+.wrangler/
+outputs/
+work/
+
+# Generated framework files
+next-env.d.ts
 
 # Editor and operating system files
 .DS_Store
 .idea/
 .vscode/
-

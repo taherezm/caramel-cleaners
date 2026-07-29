@@ -6,13 +6,13 @@ const services = [
     title: "Regular clean",
     description:
       "A dependable reset for kitchens, bathrooms, bedrooms, and shared spaces.",
-    tag: "Most popular",
   },
   {
     number: "02",
     title: "Deep clean",
     description:
       "A detailed top-to-bottom refresh for the places that need extra attention.",
+    tag: "Most popular",
   },
   {
     number: "03",

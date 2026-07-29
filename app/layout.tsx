@@ -1,9 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import AnalyticsBridge from "./components/analytics-bridge";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://taherezm.github.io/caramel-cleaners/"),
+  applicationName: "Caramel Cleaners",
+  manifest: "site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Caramel Cleaners",
+    statusBarStyle: "default",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+  },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
   title: {
     default: "Caramel Cleaners | Home Cleaning Made Simple",
     template: "%s | Caramel Cleaners",
@@ -37,6 +52,15 @@ export const metadata: Metadata = {
       "Compare home cleaning services and book a clean that fits your home.",
     images: ["og.png"],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#f7f2eb",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

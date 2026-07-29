@@ -65,7 +65,7 @@ export default function Home() {
         Skip to content
       </a>
 
-      <div className="site-shell" id="top">
+      <div className="site-shell home-site-shell" id="top">
         <header className="site-header">
           <div className="brand">
             <LogoMark
@@ -237,6 +237,20 @@ export default function Home() {
           <p>© 2026 Caramel Cleaners. All rights reserved.</p>
         </footer>
       </div>
+
+      <aside className="mobile-book-dock" aria-label="Quick booking">
+        <span>
+          <strong>Ready for a reset?</strong>
+          <small>See your price online.</small>
+        </span>
+        <a
+          href="./book/"
+          data-analytics-event="book_now_click"
+          aria-label="Book your clean"
+        >
+          Book now <span aria-hidden="true">↗</span>
+        </a>
+      </aside>
     </>
   );
 }

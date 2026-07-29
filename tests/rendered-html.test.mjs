@@ -20,11 +20,16 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /Play the Caramel Cleaners logo animation/);
   assert.match(html, /Animate the Detailed \/ First Clean logo/);
   assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
+  assert.match(html, /class="mobile-book-dock"/);
+  assert.match(html, /Ready for a reset/);
   assert.match(
     html,
     /class="logo-mark-button logo-mark-header" href="\.\/" aria-label="Caramel Cleaners home"/,
   );
   assert.doesNotMatch(html, /brand-wordmark\.png/);
+  assert.match(html, /site\.webmanifest/);
+  assert.match(html, /apple-mobile-web-app-capable/);
+  assert.match(html, /theme-color/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);
   assert.doesNotMatch(html, /Bedrooms|Next: Your home/);
 });
@@ -90,4 +95,19 @@ test("section links do not leave the document locked to a hash target", async ()
   assert.match(sectionLink, /focus\(\{ preventScroll: true \}\)/);
   assert.match(sectionLink, /history\.replaceState/);
   assert.match(sectionLink, /location\.pathname/);
+});
+
+test("ships an installable mobile web app manifest", async () => {
+  const manifest = JSON.parse(
+    await readFile(
+      new URL("../public/site.webmanifest", import.meta.url),
+      "utf8",
+    ),
+  );
+
+  assert.equal(manifest.name, "Caramel Cleaners");
+  assert.equal(manifest.display, "standalone");
+  assert.equal(manifest.start_url, "./");
+  assert.equal(manifest.scope, "./");
+  assert.equal(manifest.icons[0].purpose, "any maskable");
 });

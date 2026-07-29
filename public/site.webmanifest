@@ -1,0 +1,20 @@
+{
+  "name": "Caramel Cleaners",
+  "short_name": "Caramel",
+  "description": "Compare home cleaning services and book your Caramel Cleaners appointment online.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f2eb",
+  "theme_color": "#f7f2eb",
+  "orientation": "portrait-primary",
+  "categories": ["business", "lifestyle"],
+  "icons": [
+    {
+      "src": "brand-mark.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

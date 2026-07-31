@@ -24,6 +24,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /extensively background-checked/);
   assert.match(html, /covered by liability insurance/);
   assert.match(html, /Liability insured/);
+  assert.match(html, /clear communication/);
+  assert.match(html, /Identity and criminal-history screening/);
+  assert.match(html, /accidental property damage/);
   assert.match(html, /href="\.\/book\/"/);
   assert.match(html, /Play the Caramel Cleaners logo animation/);
   assert.doesNotMatch(html, /Animate the .* Clean logo/);

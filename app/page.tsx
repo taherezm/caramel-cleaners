@@ -184,8 +184,9 @@ export default function Home() {
                 <div>
                   <h3>Carefully vetted</h3>
                   <p>
-                    Chosen for professionalism, reliability, and respect for
-                    your home.
+                    Each cleaner is evaluated for professionalism, reliability,
+                    clear communication, and respect for a client’s space
+                    before joining our team.
                   </p>
                 </div>
               </li>
@@ -194,8 +195,9 @@ export default function Home() {
                 <div>
                   <h3>Extensive background checks</h3>
                   <p>
-                    Screening is completed before a cleaner is trusted in a
-                    client’s home.
+                    Identity and criminal-history screening are completed
+                    before a cleaner is approved to work inside a client’s
+                    home.
                   </p>
                 </div>
               </li>
@@ -204,8 +206,9 @@ export default function Home() {
                 <div>
                   <h3>Liability insured</h3>
                   <p>
-                    Coverage is in place for added protection during every
-                    appointment.
+                    Liability coverage is maintained for added protection in
+                    the unlikely event of accidental property damage during
+                    your appointment.
                   </p>
                 </div>
               </li>

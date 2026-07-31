@@ -182,7 +182,21 @@ export default function Home() {
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <details>
-                    <summary>What’s included</summary>
+                    <summary>
+                      <span>What’s included</span>
+                      <span
+                        className="service-summary-action"
+                        aria-hidden="true"
+                      >
+                        <span className="service-summary-action-closed">
+                          View
+                        </span>
+                        <span className="service-summary-action-open">
+                          Hide
+                        </span>
+                        <span className="service-summary-chevron" />
+                      </span>
+                    </summary>
                     <ul>
                       {service.includes.map((item) => (
                         <li key={item}>{item}</li>

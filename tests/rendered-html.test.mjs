@@ -27,6 +27,10 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /ui-arrow ui-arrow-up-right/);
   assert.match(html, /ui-arrow ui-arrow-down/);
   assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
+  assert.equal((html.match(/<details>/g) ?? []).length, 3);
+  assert.match(html, /service-summary-action-closed/);
+  assert.match(html, /service-summary-action-open/);
+  assert.match(html, /service-summary-chevron/);
   assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
   assert.match(html, /class="mobile-book-dock"/);
   assert.match(html, /Ready for a reset/);
@@ -115,6 +119,20 @@ test("stacks the how-it-works flow within the mobile viewport", async () => {
   assert.match(
     css,
     /\.hero-actions \.text-link\s*\{[^}]*width:\s*100%/,
+  );
+});
+
+test("styles service details as clear collapsible dropdowns", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /summary::\-webkit-details-marker/);
+  assert.match(css, /\.service-tier details\[open\] summary/);
+  assert.match(
+    css,
+    /\.service-tier details\[open\] \.service-summary-chevron/,
   );
 });
 

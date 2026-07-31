@@ -63,10 +63,14 @@ test("renders a dedicated booking page with a safe missing-config state", async 
     html,
     /Customize your cleaning, see your price, and book online/,
   );
-  assert.match(html, /aria-label="Cleaner standards"/);
-  assert.match(html, /Vetted professionals/);
-  assert.match(html, /Extensive background checks/);
-  assert.match(html, /Liability insured/);
+  assert.match(
+    html,
+    /aria-label="Why homeowners choose Caramel Cleaners"/,
+  );
+  assert.match(html, /More time for what matters/);
+  assert.match(html, /Detail-focused cleaning/);
+  assert.match(html, /Scheduling that fits your life/);
+  assert.doesNotMatch(html, /Cleaner standards/);
   assert.match(html, /Animate the Caramel Cleaners booking logo/);
   assert.match(
     html,
@@ -143,7 +147,7 @@ test("styles service details as clear collapsible dropdowns", async () => {
   );
 });
 
-test("presents cleaner standards as a large open checklist", async () => {
+test("presents booking benefits as a large open checklist", async () => {
   const css = await readFile(
     new URL("../app/globals.css", import.meta.url),
     "utf8",

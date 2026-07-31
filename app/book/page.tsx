@@ -71,10 +71,13 @@ export default function BookingPage() {
                 label="Animate the Caramel Cleaners booking logo"
               />
             </div>
-            <ul className="booking-trust" aria-label="Cleaner standards">
-              <li>Vetted professionals</li>
-              <li>Extensive background checks</li>
-              <li>Liability insured</li>
+            <ul
+              className="booking-trust"
+              aria-label="Why homeowners choose Caramel Cleaners"
+            >
+              <li>More time for what matters</li>
+              <li>Detail-focused cleaning</li>
+              <li>Scheduling that fits your life</li>
             </ul>
             <p className="booking-note">
               Tell us about your home as accurately as you can. If its size or

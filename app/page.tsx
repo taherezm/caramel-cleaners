@@ -287,7 +287,7 @@ export default function Home() {
             />
             <div>
               <p>Thoughtfully planned. Thoroughly cleaned.</p>
-              <h2>Come home to more room to breathe.</h2>
+              <h2>Come home to a cleaner, calmer space.</h2>
             </div>
             <a
               className="button button-dark"

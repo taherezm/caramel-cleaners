@@ -35,6 +35,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
     /clean online, all without waiting for a quote\./,
   );
   assert.match(html, /Animate the Caramel Cleaners closing logo/);
+  assert.match(html, /Come home to a cleaner, calmer space/);
+  assert.doesNotMatch(html, /Come home to more room to breathe/);
   assert.match(html, /ui-arrow ui-arrow-up-right/);
   assert.match(html, /ui-arrow ui-arrow-down/);
   assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);

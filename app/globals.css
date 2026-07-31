@@ -318,9 +318,7 @@ img {
 .site-nav a:hover,
 .site-nav a:focus-visible,
 .text-link:hover,
-.text-link:focus-visible,
-.service-book-link:hover,
-.service-book-link:focus-visible {
+.text-link:focus-visible {
   text-decoration: underline;
 }
 
@@ -571,6 +569,30 @@ summary:focus-visible {
   margin-top: 34px;
   padding-bottom: 7px;
   border-bottom: 1px solid rgb(255 255 255 / 64%);
+}
+
+.trust-link,
+.service-book-link {
+  text-decoration: none;
+}
+
+.trust-link:hover,
+.trust-link:focus-visible,
+.service-book-link:hover,
+.service-book-link:focus-visible {
+  text-decoration: none;
+}
+
+.trust-link .ui-arrow,
+.service-book-link .ui-arrow {
+  transition: transform 160ms ease;
+}
+
+.trust-link:hover .ui-arrow,
+.trust-link:focus-visible .ui-arrow,
+.service-book-link:hover .ui-arrow,
+.service-book-link:focus-visible .ui-arrow {
+  transform: translate(2px, -2px) rotate(var(--arrow-rotation));
 }
 
 .trust-standards {

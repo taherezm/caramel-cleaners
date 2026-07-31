@@ -177,6 +177,26 @@ test("gives cleaner safety standards a premium, prominent section", async () => 
   assert.match(css, /\.trust-standards li\s*\{[^}]*display:\s*grid/);
 });
 
+test("keeps bordered booking links to a single underline", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    css,
+    /\.trust-link,\s*\.service-book-link\s*\{[^}]*text-decoration:\s*none/,
+  );
+  assert.match(
+    css,
+    /\.trust-link:hover,[\s\S]*?\.service-book-link:focus-visible\s*\{[^}]*text-decoration:\s*none/,
+  );
+  assert.doesNotMatch(
+    css,
+    /\.service-book-link:hover,[^}]*text-decoration:\s*underline/,
+  );
+});
+
 test("section links do not leave the document locked to a hash target", async () => {
   const sectionLink = await readFile(
     new URL("../app/components/section-link.tsx", import.meta.url),

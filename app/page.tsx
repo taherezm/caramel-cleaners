@@ -165,7 +165,7 @@ export default function Home() {
               </h2>
               <p>
                 A clean home should come with peace of mind. Every Caramel
-                Cleaners professional is carefully vetted, extensively
+                Cleaner is carefully vetted, extensively
                 background-checked, and covered by liability insurance before
                 they are trusted in a client’s home.
               </p>

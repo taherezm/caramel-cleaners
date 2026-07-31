@@ -18,6 +18,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /Most popular/);
   assert.match(html, /id="standards"/);
   assert.match(html, /The person entering your home matters/);
+  assert.match(html, /Every Caramel Cleaner is carefully vetted/);
+  assert.doesNotMatch(html, /Every Caramel Cleaners professional/);
   assert.match(html, /carefully vetted/);
   assert.match(html, /extensively background-checked/);
   assert.match(html, /covered by liability insurance/);

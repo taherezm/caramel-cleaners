@@ -235,6 +235,34 @@ test("uses liquid glass selectively without flattening key brand surfaces", asyn
   assert.match(css, /\.trust-section\s*\{[^}]*background:\s*var\(--ink\)/);
 });
 
+test("adds native scroll reveals without intercepting document scrolling", async () => {
+  const homeHtml = await readFile(new URL("index.html", output), "utf8");
+  const bookingHtml = await readFile(
+    new URL("book/index.html", output),
+    "utf8",
+  );
+  const confirmationHtml = await readFile(
+    new URL("thank-you/index.html", output),
+    "utf8",
+  );
+  const reveal = await readFile(
+    new URL("../app/components/scroll-reveal.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(homeHtml, /data-reveal="right"/);
+  assert.match(homeHtml, /data-reveal-delay="140"/);
+  assert.match(bookingHtml, /data-reveal="up"/);
+  assert.match(confirmationHtml, /data-reveal-delay="180"/);
+  assert.match(reveal, /IntersectionObserver/);
+  assert.match(reveal, /prefers-reduced-motion/);
+  assert.match(reveal, /element\.animate/);
+  assert.doesNotMatch(
+    reveal,
+    /scrollTo|scrollIntoView|preventDefault|touchmove|wheel/,
+  );
+});
+
 test("section links do not leave the document locked to a hash target", async () => {
   const sectionLink = await readFile(
     new URL("../app/components/section-link.tsx", import.meta.url),

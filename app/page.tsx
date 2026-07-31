@@ -67,7 +67,7 @@ export default function Home() {
       </a>
 
       <div className="site-shell home-site-shell" id="top">
-        <header className="site-header">
+        <header className="site-header" data-reveal="down">
           <div className="brand">
             <LogoMark
               src="./brand-mark.png"
@@ -100,7 +100,7 @@ export default function Home() {
 
         <main id="main-content">
           <section className="hero" aria-labelledby="hero-heading">
-            <div className="hero-copy">
+            <div className="hero-copy" data-reveal="up">
               <h1 id="hero-heading">
                 A cleaner home,
                 <br />
@@ -125,7 +125,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-brand-art">
+            <div
+              className="hero-brand-art"
+              data-reveal="right"
+              data-reveal-delay="90"
+            >
               <LogoMark
                 src="./brand-mark.png"
                 className="logo-mark-hero"
@@ -140,8 +144,12 @@ export default function Home() {
               id="how-it-works"
               tabIndex={-1}
             >
-              {processSteps.map((step) => (
-                <li key={step.number}>
+              {processSteps.map((step, index) => (
+                <li
+                  key={step.number}
+                  data-reveal="up"
+                  data-reveal-delay={index * 70}
+                >
                   <span className="process-number">{step.number}</span>
                   <div>
                     <h2>{step.title}</h2>
@@ -158,7 +166,7 @@ export default function Home() {
             aria-labelledby="trust-heading"
             tabIndex={-1}
           >
-            <div className="trust-copy">
+            <div className="trust-copy" data-reveal="left">
               <p className="trust-kicker">Trust is part of the service</p>
               <h2 id="trust-heading">
                 The person entering your home matters.
@@ -179,7 +187,7 @@ export default function Home() {
             </div>
 
             <ol className="trust-standards" aria-label="Cleaner standards">
-              <li>
+              <li data-reveal="right">
                 <span>01</span>
                 <div>
                   <h3>Carefully vetted</h3>
@@ -190,7 +198,7 @@ export default function Home() {
                   </p>
                 </div>
               </li>
-              <li>
+              <li data-reveal="right" data-reveal-delay="70">
                 <span>02</span>
                 <div>
                   <h3>Extensive background checks</h3>
@@ -201,7 +209,7 @@ export default function Home() {
                   </p>
                 </div>
               </li>
-              <li>
+              <li data-reveal="right" data-reveal-delay="140">
                 <span>03</span>
                 <div>
                   <h3>Liability insured</h3>
@@ -221,7 +229,7 @@ export default function Home() {
             aria-labelledby="services-heading"
             tabIndex={-1}
           >
-            <div className="section-heading">
+            <div className="section-heading" data-reveal="up">
               <h2 id="services-heading">Start with the clean you need.</h2>
               <p>
                 Every home is different. Choose a starting point, then
@@ -230,12 +238,14 @@ export default function Home() {
             </div>
 
             <div className="service-comparison">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <article
                   className={
                     service.tag ? "service-tier service-tier-featured" : "service-tier"
                   }
                   key={service.title}
+                  data-reveal="up"
+                  data-reveal-delay={index * 90}
                 >
                   <div className="service-tier-top">
                     <span className="service-number">{service.number}</span>
@@ -284,8 +294,9 @@ export default function Home() {
               src="./brand-mark.png"
               className="logo-mark-closing"
               label="Animate the Caramel Cleaners closing logo"
+              dataReveal="scale"
             />
-            <div>
+            <div data-reveal="up" data-reveal-delay="70">
               <p>Thoughtfully planned. Thoroughly cleaned.</p>
               <h2>Come home to a cleaner, calmer space.</h2>
             </div>
@@ -293,13 +304,15 @@ export default function Home() {
               className="button button-dark"
               href="./book/"
               data-analytics-event="book_now_click"
+              data-reveal="up"
+              data-reveal-delay="140"
             >
               Book your clean <ArrowIcon />
             </a>
           </section>
         </main>
 
-        <footer className="site-footer">
+        <footer className="site-footer" data-reveal="up">
           <div className="brand footer-brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-footer" />
             <SectionLink className="brand-name" targetId="top">

@@ -36,7 +36,10 @@ export default function BookingPage() {
       </a>
 
       <div className="site-shell booking-site-shell">
-        <header className="site-header compact-header">
+        <header
+          className="site-header compact-header"
+          data-reveal="down"
+        >
           <div className="brand">
             <LogoMark
               src="../brand-mark.png"
@@ -58,7 +61,7 @@ export default function BookingPage() {
 
         <main className="booking-main" id="booking-form">
           <section className="booking-intro" aria-labelledby="booking-heading">
-            <div className="booking-intro-heading">
+            <div className="booking-intro-heading" data-reveal="up">
               <div>
                 <p className="section-kicker">Book your clean</p>
                 <h1 id="booking-heading">
@@ -75,11 +78,19 @@ export default function BookingPage() {
               className="booking-trust"
               aria-label="Why homeowners choose Caramel Cleaners"
             >
-              <li>More time for what matters</li>
-              <li>Detail-focused cleaning</li>
-              <li>Scheduling that fits your life</li>
+              <li data-reveal="up">More time for what matters</li>
+              <li data-reveal="up" data-reveal-delay="70">
+                Detail-focused cleaning
+              </li>
+              <li data-reveal="up" data-reveal-delay="140">
+                Scheduling that fits your life
+              </li>
             </ul>
-            <p className="booking-note">
+            <p
+              className="booking-note"
+              data-reveal="up"
+              data-reveal-delay="90"
+            >
               Tell us about your home as accurately as you can. If its size or
               condition differs materially from the booking details, we will
               review any pricing adjustment with you before additional work
@@ -87,10 +98,12 @@ export default function BookingPage() {
             </p>
           </section>
 
-          <BookingEmbed embedUrl={bookingEmbedUrl} />
+          <div data-reveal="up">
+            <BookingEmbed embedUrl={bookingEmbedUrl} />
+          </div>
         </main>
 
-        <footer className="site-footer booking-footer">
+        <footer className="site-footer booking-footer" data-reveal="up">
           <div className="brand footer-brand">
             <LogoMark src="../brand-mark.png" className="logo-mark-footer" />
             <a className="brand-name" href="../">

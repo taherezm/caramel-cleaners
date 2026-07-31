@@ -136,6 +136,26 @@ test("styles service details as clear collapsible dropdowns", async () => {
   );
 });
 
+test("presents booking benefits as a large open checklist", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    css,
+    /\.booking-trust\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/,
+  );
+  assert.match(
+    css,
+    /\.booking-trust li\s*\{[^}]*font-size:\s*17px/,
+  );
+  assert.doesNotMatch(
+    css,
+    /\.booking-trust li\s*\{[^}]*border-radius/,
+  );
+});
+
 test("section links do not leave the document locked to a hash target", async () => {
   const sectionLink = await readFile(
     new URL("../app/components/section-link.tsx", import.meta.url),

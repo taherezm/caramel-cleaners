@@ -101,6 +101,23 @@ test("keeps native document scrolling available around interactive logos", async
   assert.match(logoComponent, /logo\.blur\(\)/);
 });
 
+test("stacks the how-it-works flow within the mobile viewport", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /overflow-x:\s*clip/);
+  assert.match(
+    css,
+    /@media \(max-width: 760px\)[\s\S]*?\.process-steps\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/,
+  );
+  assert.match(
+    css,
+    /\.hero-actions \.text-link\s*\{[^}]*width:\s*100%/,
+  );
+});
+
 test("section links do not leave the document locked to a hash target", async () => {
   const sectionLink = await readFile(
     new URL("../app/components/section-link.tsx", import.meta.url),

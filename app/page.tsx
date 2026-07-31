@@ -85,6 +85,7 @@ export default function Home() {
 
           <nav className="site-nav" aria-label="Primary navigation">
             <SectionLink targetId="how-it-works">How it works</SectionLink>
+            <SectionLink targetId="standards">Our standards</SectionLink>
             <SectionLink targetId="services">Services</SectionLink>
           </nav>
 
@@ -148,6 +149,66 @@ export default function Home() {
                   </div>
                 </li>
               ))}
+            </ol>
+          </section>
+
+          <section
+            className="trust-section"
+            id="standards"
+            aria-labelledby="trust-heading"
+            tabIndex={-1}
+          >
+            <div className="trust-copy">
+              <p className="trust-kicker">Trust is part of the service</p>
+              <h2 id="trust-heading">
+                The person entering your home matters.
+              </h2>
+              <p>
+                A clean home should come with peace of mind. Every Caramel
+                Cleaners professional is carefully vetted, extensively
+                background-checked, and covered by liability insurance before
+                they are trusted in a client’s home.
+              </p>
+              <a
+                className="trust-link"
+                href="./book/"
+                data-analytics-event="book_now_click"
+              >
+                Book with confidence <ArrowIcon />
+              </a>
+            </div>
+
+            <ol className="trust-standards" aria-label="Cleaner standards">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Carefully vetted</h3>
+                  <p>
+                    Chosen for professionalism, reliability, and respect for
+                    your home.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Extensive background checks</h3>
+                  <p>
+                    Screening is completed before a cleaner is trusted in a
+                    client’s home.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Liability insured</h3>
+                  <p>
+                    Coverage is in place for added protection during every
+                    appointment.
+                  </p>
+                </div>
+              </li>
             </ol>
           </section>
 

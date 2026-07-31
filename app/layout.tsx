@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Caramel Cleaners",
   },
   description:
-    "Compare home cleaning services and book a clean that fits your home with Caramel Cleaners.",
+    "Book home cleaning with vetted, extensively background-checked professionals covered by liability insurance.",
   icons: {
     icon: "brand-mark.png",
     apple: "brand-mark.png",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Compare home cleaning services and book a clean that fits your home.",
+      "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
     type: "website",
     url: "https://taherezm.github.io/caramel-cleaners/",
     siteName: "Caramel Cleaners",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Compare home cleaning services and book a clean that fits your home.",
+      "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
     images: ["og.png?v=text-only-20260728"],
   },
 };

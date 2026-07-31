@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Book Your Clean",
   description:
-    "Customize your Caramel Cleaners service, see your price, and book online.",
+    "Book a Caramel Cleaners service with vetted, extensively background-checked professionals covered by liability insurance.",
 };
 
 function getBookingEmbedUrl() {
@@ -71,10 +71,10 @@ export default function BookingPage() {
                 label="Animate the Caramel Cleaners booking logo"
               />
             </div>
-            <ul className="booking-trust" aria-label="Booking benefits">
-              <li>Upfront pricing</li>
-              <li>Flexible scheduling</li>
-              <li>Secure online booking</li>
+            <ul className="booking-trust" aria-label="Cleaner standards">
+              <li>Vetted professionals</li>
+              <li>Extensive background checks</li>
+              <li>Liability insured</li>
             </ul>
             <p className="booking-note">
               Tell us about your home as accurately as you can. If its size or

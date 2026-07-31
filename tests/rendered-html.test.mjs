@@ -16,6 +16,12 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /Detailed \/ First Clean/);
   assert.match(html, /Move-In \/ Move-Out Clean/);
   assert.match(html, /Most popular/);
+  assert.match(html, /id="standards"/);
+  assert.match(html, /The person entering your home matters/);
+  assert.match(html, /carefully vetted/);
+  assert.match(html, /extensively background-checked/);
+  assert.match(html, /covered by liability insurance/);
+  assert.match(html, /Liability insured/);
   assert.match(html, /href="\.\/book\/"/);
   assert.match(html, /Play the Caramel Cleaners logo animation/);
   assert.doesNotMatch(html, /Animate the .* Clean logo/);
@@ -57,9 +63,10 @@ test("renders a dedicated booking page with a safe missing-config state", async 
     html,
     /Customize your cleaning, see your price, and book online/,
   );
-  assert.match(html, /Upfront pricing/);
-  assert.match(html, /Flexible scheduling/);
-  assert.match(html, /Secure online booking/);
+  assert.match(html, /aria-label="Cleaner standards"/);
+  assert.match(html, /Vetted professionals/);
+  assert.match(html, /Extensive background checks/);
+  assert.match(html, /Liability insured/);
   assert.match(html, /Animate the Caramel Cleaners booking logo/);
   assert.match(
     html,
@@ -136,7 +143,7 @@ test("styles service details as clear collapsible dropdowns", async () => {
   );
 });
 
-test("presents booking benefits as a large open checklist", async () => {
+test("presents cleaner standards as a large open checklist", async () => {
   const css = await readFile(
     new URL("../app/globals.css", import.meta.url),
     "utf8",
@@ -154,6 +161,20 @@ test("presents booking benefits as a large open checklist", async () => {
     css,
     /\.booking-trust li\s*\{[^}]*border-radius/,
   );
+});
+
+test("gives cleaner safety standards a premium, prominent section", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    css,
+    /\.trust-section\s*\{[^}]*grid-template-columns:[^;]*minmax\(360px,\s*0\.95fr\)/,
+  );
+  assert.match(css, /\.trust-section\s*\{[^}]*background:\s*var\(--ink\)/);
+  assert.match(css, /\.trust-standards li\s*\{[^}]*display:\s*grid/);
 });
 
 test("section links do not leave the document locked to a hash target", async () => {

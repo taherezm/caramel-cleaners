@@ -524,6 +524,92 @@ summary:focus-visible {
   line-height: 1.55;
 }
 
+.trust-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 72px;
+  margin-top: 110px;
+  padding: 70px;
+  scroll-margin-top: 20px;
+  border-radius: 44px;
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 32px 70px rgb(39 31 25 / 15%);
+}
+
+.trust-kicker {
+  margin: 0 0 20px;
+  color: #e6a66d;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.trust-copy h2 {
+  max-width: 660px;
+  margin: 0;
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.trust-copy > p:not(.trust-kicker) {
+  max-width: 620px;
+  margin: 30px 0 0;
+  color: rgb(255 255 255 / 72%);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.trust-link {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 34px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgb(255 255 255 / 64%);
+}
+
+.trust-standards {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgb(255 255 255 / 18%);
+  list-style: none;
+}
+
+.trust-standards li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 18%);
+}
+
+.trust-standards > li > span {
+  padding-top: 4px;
+  color: #e6a66d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.trust-standards h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.trust-standards p {
+  margin: 0;
+  color: rgb(255 255 255 / 66%);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
 .services-section {
   scroll-margin-top: 20px;
   padding: 126px 0 118px;
@@ -1065,6 +1151,19 @@ summary:focus-visible {
     gap: 28px;
   }
 
+  .trust-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .trust-copy h2 {
+    max-width: 760px;
+  }
+
+  .trust-copy > p:not(.trust-kicker) {
+    max-width: 720px;
+  }
+
   .service-comparison {
     grid-template-columns: 1fr;
   }
@@ -1189,6 +1288,37 @@ summary:focus-visible {
   .process-steps h2,
   .process-steps p {
     overflow-wrap: anywhere;
+  }
+
+  .trust-section {
+    gap: 38px;
+    margin-top: 70px;
+    padding: 38px 26px;
+    border-radius: 30px;
+  }
+
+  .trust-copy h2 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .trust-copy > p:not(.trust-kicker) {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  .trust-link {
+    min-height: 48px;
+    margin-top: 24px;
+  }
+
+  .trust-standards li {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .trust-standards h3 {
+    font-size: 19px;
   }
 
   .services-section {

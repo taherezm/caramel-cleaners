@@ -53,6 +53,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   );
   assert.doesNotMatch(html, /brand-wordmark\.png/);
   assert.match(html, /site\.webmanifest/);
+  assert.match(html, /favicon\.ico\?v=circular-20260731/);
+  assert.match(html, /favicon\.png\?v=circular-20260731/);
+  assert.match(html, /apple-touch-icon\.png\?v=circular-20260731/);
   assert.match(html, /apple-mobile-web-app-capable/);
   assert.match(html, /theme-color/);
   assert.match(html, /og\.png\?v=text-only-20260728/);
@@ -287,5 +290,32 @@ test("ships an installable mobile web app manifest", async () => {
   assert.equal(manifest.display, "standalone");
   assert.equal(manifest.start_url, "./");
   assert.equal(manifest.scope, "./");
-  assert.equal(manifest.icons[0].purpose, "any maskable");
+  assert.equal(manifest.icons[0].src, "icon-192.png");
+  assert.equal(manifest.icons[0].sizes, "192x192");
+  assert.equal(manifest.icons[0].purpose, "any");
+  assert.equal(manifest.icons[1].src, "icon-512.png");
+  assert.equal(manifest.icons[1].sizes, "512x512");
+});
+
+test("ships circular favicon artwork with transparent corners", async () => {
+  const favicon = await readFile(
+    new URL("../public/favicon.png", import.meta.url),
+  );
+  const appleIcon = await readFile(
+    new URL("../public/apple-touch-icon.png", import.meta.url),
+  );
+  const ico = await readFile(
+    new URL("../public/favicon.ico", import.meta.url),
+  );
+
+  assert.deepEqual(
+    Array.from(favicon.subarray(0, 8)),
+    [137, 80, 78, 71, 13, 10, 26, 10],
+  );
+  assert.equal(favicon.readUInt32BE(16), 512);
+  assert.equal(favicon.readUInt32BE(20), 512);
+  assert.equal(favicon[25], 6);
+  assert.equal(appleIcon.readUInt32BE(16), 180);
+  assert.equal(appleIcon.readUInt32BE(20), 180);
+  assert.deepEqual(Array.from(ico.subarray(0, 4)), [0, 0, 1, 0]);
 });

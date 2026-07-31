@@ -27,8 +27,25 @@ export const metadata: Metadata = {
   description:
     "Book home cleaning with vetted, extensively background-checked professionals covered by liability insurance.",
   icons: {
-    icon: "brand-mark.png",
-    apple: "brand-mark.png",
+    icon: [
+      {
+        url: "favicon.ico?v=circular-20260731",
+        sizes: "any",
+      },
+      {
+        url: "favicon.png?v=circular-20260731",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    shortcut: "favicon.ico?v=circular-20260731",
+    apple: [
+      {
+        url: "apple-touch-icon.png?v=circular-20260731",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
   openGraph: {
     title: "Caramel Cleaners | Home Cleaning Made Simple",

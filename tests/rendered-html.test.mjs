@@ -206,6 +206,33 @@ test("keeps bordered booking links to a single underline", async () => {
   );
 });
 
+test("uses liquid glass selectively without flattening key brand surfaces", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /--glass-fill:/);
+  assert.match(css, /--glass-shadow:/);
+  assert.match(
+    css,
+    /\.site-header\s*\{[^}]*backdrop-filter:\s*blur\(24px\)/,
+  );
+  assert.match(
+    css,
+    /\.service-tier:not\(\.service-tier-featured\)\s*\{[^}]*backdrop-filter:\s*blur\(24px\)/,
+  );
+  assert.match(
+    css,
+    /\.closing-section\s*\{[^}]*backdrop-filter:\s*blur\(28px\)/,
+  );
+  assert.match(
+    css,
+    /\.service-tier-featured\s*\{[^}]*background:\s*var\(--caramel\)/,
+  );
+  assert.match(css, /\.trust-section\s*\{[^}]*background:\s*var\(--ink\)/);
+});
+
 test("section links do not leave the document locked to a hash target", async () => {
   const sectionLink = await readFile(
     new URL("../app/components/section-link.tsx", import.meta.url),

@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     siteName: "Caramel Cleaners",
     images: [
       {
-        url: "og.png?v=text-only-20260728",
-        width: 1200,
-        height: 630,
+        url: "og.png?v=wordmark-20260801",
+        width: 1774,
+        height: 887,
         alt: "Caramel Cleaners",
       },
     ],
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
       "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
-    images: ["og.png?v=text-only-20260728"],
+    images: ["og.png?v=wordmark-20260801"],
   },
 };
 

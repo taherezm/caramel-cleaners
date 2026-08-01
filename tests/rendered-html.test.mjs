@@ -58,7 +58,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /apple-touch-icon\.png\?v=circular-20260731/);
   assert.match(html, /apple-mobile-web-app-capable/);
   assert.match(html, /theme-color/);
-  assert.match(html, /og\.png\?v=text-only-20260728/);
+  assert.match(html, /og\.png\?v=wordmark-20260801/);
+  assert.match(html, /property="og:image:width" content="1774"/);
+  assert.match(html, /property="og:image:height" content="887"/);
   assert.match(html, /property="og:image:alt" content="Caramel Cleaners"/);
   assert.doesNotMatch(html, /Come home to clean/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);

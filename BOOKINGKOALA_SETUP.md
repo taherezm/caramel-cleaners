@@ -175,7 +175,7 @@ the final booking action.
 
 Set the post-booking redirect to:
 
-`https://taherezm.github.io/caramel-cleaners/thank-you/`
+`https://caramelcleaners.com/thank-you/`
 
 The site emits vendor-neutral browser events without reading the iframe or
 collecting customer details:

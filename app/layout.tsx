@@ -4,7 +4,7 @@ import ScrollReveal from "./components/scroll-reveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://taherezm.github.io/caramel-cleaners/"),
+  metadataBase: new URL("https://caramelcleaners.com/"),
   applicationName: "Caramel Cleaners",
   manifest: "site.webmanifest",
   appleWebApp: {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description:
       "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
     type: "website",
-    url: "https://taherezm.github.io/caramel-cleaners/",
+    url: "https://caramelcleaners.com/",
     siteName: "Caramel Cleaners",
     images: [
       {

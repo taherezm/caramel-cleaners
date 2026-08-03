@@ -12,10 +12,19 @@ test("renders a focused Caramel Cleaners homepage", async () => {
     /<title>Caramel Cleaners \| Home Cleaning Made Simple<\/title>/i,
   );
   assert.match(html, /without the guesswork/);
+  assert.match(
+    html,
+    /Now servicing homes in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana/,
+  );
+  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
+  assert.doesNotMatch(html, /id="service-area"/);
+  assert.doesNotMatch(html, /Home cleaning built around our local communities/);
   assert.match(html, /Routine Clean/);
   assert.match(html, /Detailed \/ First Clean/);
   assert.match(html, /Move-In \/ Move-Out Clean/);
   assert.match(html, /Most popular/);
+  assert.equal((html.match(/class="service-number">[123]<\/span>/g) ?? []).length, 3);
+  assert.doesNotMatch(html, /class="service-number">0[123]<\/span>/);
   assert.match(html, /id="standards"/);
   assert.match(html, /The person entering your home matters/);
   assert.match(html, /Every Caramel Cleaner is carefully vetted/);
@@ -24,16 +33,28 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /extensively background-checked/);
   assert.match(html, /covered by liability insurance/);
   assert.match(html, /Liability insured/);
+  assert.match(html, /Covered by a \$1,000,000 general liability policy/);
   assert.match(html, /clear communication/);
   assert.match(html, /Identity and criminal-history screening/);
   assert.match(html, /accidental property damage/);
   assert.match(html, /href="\.\/book\/"/);
   assert.match(html, /Play the Caramel Cleaners logo animation/);
   assert.doesNotMatch(html, /Animate the .* Clean logo/);
-  assert.match(
-    html,
-    /clean online, all without waiting for a quote\./,
+  assert.match(html, /one-time clean or choose a recurring schedule/);
+  assert.match(html, /id="recurring"/);
+  assert.ok(
+    html.indexOf('id="services"') < html.indexOf('id="recurring"'),
+    "recurring plans should appear after the initial cleaning tiers",
   );
+  assert.match(html, /More consistency\. Less per visit\./);
+  assert.match(html, /Weekly/);
+  assert.match(html, /Every two weeks/);
+  assert.match(html, /Every four weeks/);
+  assert.match(html, /<strong>15%<\/strong>/);
+  assert.match(html, /<strong>10%<\/strong>/);
+  assert.match(html, /<strong>5%<\/strong>/);
+  assert.match(html, /Routine Clean is \$0\.11 per square foot with a \$149 minimum/);
+  assert.match(html, /Recurring service typically begins after a Detailed \/ First Clean/);
   assert.match(html, /Animate the Caramel Cleaners closing logo/);
   assert.match(html, /Come home to a cleaner, calmer space/);
   assert.doesNotMatch(html, /Come home to more room to breathe/);
@@ -45,8 +66,26 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /service-summary-action-open/);
   assert.match(html, /service-summary-chevron/);
   assert.match(html, /class="brand-name"[^>]*>Caramel Cleaners</);
+  assert.doesNotMatch(html, /brand-descriptor|>Housecleaning</);
   assert.match(html, /class="mobile-book-dock"/);
-  assert.match(html, /Ready for a reset/);
+  assert.match(html, /Save with recurring care/);
+  assert.match(html, /Up to 15% off each visit/);
+  assert.match(html, /id="contact"/);
+  assert.match(html, /Planning an event/);
+  assert.match(html, /partner with realtors and companies/);
+  assert.match(html, /Email or text us at/);
+  assert.doesNotMatch(
+    html,
+    /For any of these needs—or just a question—email or text us/,
+  );
+  assert.match(html, /P\.S\. We’re quick to respond!/);
+  assert.match(html, /\(463\) 224-4181/);
+  assert.doesNotMatch(html, /\(463\)-224-4181/);
+  assert.doesNotMatch(html, /class="contact-text">\s*Text/);
+  assert.ok((html.match(/sms:\+14632244181/g) ?? []).length >= 2);
+  assert.ok(
+    (html.match(/mailto:contact@caramelcleaners\.com/g) ?? []).length >= 2,
+  );
   assert.match(
     html,
     /class="logo-mark-button logo-mark-header" href="\.\/" aria-label="Caramel Cleaners home"/,
@@ -73,15 +112,28 @@ test("renders a dedicated booking page with a safe missing-config state", async 
   assert.match(html, /<title>Book Your Clean \| Caramel Cleaners<\/title>/i);
   assert.match(
     html,
-    /Customize your cleaning, see your price, and book online/,
+    /Customize your clean, see your price, and book online/,
   );
-  assert.match(
-    html,
-    /aria-label="Why homeowners choose Caramel Cleaners"/,
+  assert.doesNotMatch(html, /Customize your cleaning/);
+  assert.match(html, /href="\.\.\/"[^>]*>Back to Home/);
+  assert.doesNotMatch(html, /Compare services/);
+  assert.doesNotMatch(html, /Why homeowners choose Caramel Cleaners/);
+  assert.doesNotMatch(html, /More time for what matters/);
+  assert.doesNotMatch(html, /Detail-focused cleaning/);
+  assert.doesNotMatch(html, /Scheduling that fits your life/);
+  assert.doesNotMatch(html, /Locally serving/);
+  assert.doesNotMatch(html, /Tell us about your home as accurately as you can/);
+  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
+  assert.doesNotMatch(html, /brand-descriptor|>Housecleaning</);
+  assert.match(html, /Questions, event cleans, special requests, partnerships/);
+  assert.match(html, /\(463\) 224-4181/);
+  assert.doesNotMatch(html, /\(463\)-224-4181/);
+  assert.match(html, /\(We\s*respond fast\.\)/);
+  assert.doesNotMatch(html, /P\.S\.\s*We’re quick to respond!/);
+  assert.ok((html.match(/sms:\+14632244181/g) ?? []).length >= 2);
+  assert.ok(
+    (html.match(/mailto:contact@caramelcleaners\.com/g) ?? []).length >= 2,
   );
-  assert.match(html, /More time for what matters/);
-  assert.match(html, /Detail-focused cleaning/);
-  assert.match(html, /Scheduling that fits your life/);
   assert.doesNotMatch(html, /Cleaner standards/);
   assert.match(html, /Animate the Caramel Cleaners booking logo/);
   assert.match(
@@ -153,29 +205,15 @@ test("styles service details as clear collapsible dropdowns", async () => {
 
   assert.match(css, /summary::\-webkit-details-marker/);
   assert.match(css, /\.service-tier details\[open\] summary/);
+  assert.doesNotMatch(css, /\.service-tag::before/);
+  assert.doesNotMatch(css, /\.contact-response::before/);
+  assert.match(
+    css,
+    /\.recurring-popular\s*\{[^}]*font-size:\s*16px[^}]*font-weight:\s*800/,
+  );
   assert.match(
     css,
     /\.service-tier details\[open\] \.service-summary-chevron/,
-  );
-});
-
-test("presents booking benefits as a large open checklist", async () => {
-  const css = await readFile(
-    new URL("../app/globals.css", import.meta.url),
-    "utf8",
-  );
-
-  assert.match(
-    css,
-    /\.booking-trust\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/,
-  );
-  assert.match(
-    css,
-    /\.booking-trust li\s*\{[^}]*font-size:\s*17px/,
-  );
-  assert.doesNotMatch(
-    css,
-    /\.booking-trust li\s*\{[^}]*border-radius/,
   );
 });
 
@@ -191,6 +229,11 @@ test("gives cleaner safety standards a premium, prominent section", async () => 
   );
   assert.match(css, /\.trust-section\s*\{[^}]*background:\s*var\(--ink\)/);
   assert.match(css, /\.trust-standards li\s*\{[^}]*display:\s*grid/);
+  assert.doesNotMatch(css, /\.recurring-popular::before/);
+  assert.doesNotMatch(
+    css,
+    /\.trust-kicker\s*\{[^}]*text-transform:\s*uppercase/,
+  );
 });
 
 test("keeps bordered booking links to a single underline", async () => {

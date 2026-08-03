@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Book Your Clean",
   description:
-    "Book a Caramel Cleaners service with vetted, extensively background-checked professionals covered by liability insurance.",
+    "Book one-time or recurring home cleaning in Carmel, Westfield, Zionsville, Noblesville, or Fishers with Caramel Cleaners.",
 };
 
 function getBookingEmbedUrl() {
@@ -54,8 +54,8 @@ export default function BookingPage() {
               Caramel Cleaners
             </a>
           </div>
-          <a className="text-link header-back-link" href="../#services">
-            Compare services <ArrowIcon direction="down-left" />
+          <a className="text-link header-back-link" href="../">
+            Back to Home <ArrowIcon direction="down-left" />
           </a>
         </header>
 
@@ -65,7 +65,7 @@ export default function BookingPage() {
               <div>
                 <p className="section-kicker">Book your clean</p>
                 <h1 id="booking-heading">
-                  Customize your cleaning, see your price, and book online.
+                  Customize your clean, see your price, and book online.
                 </h1>
               </div>
               <LogoMark
@@ -74,27 +74,18 @@ export default function BookingPage() {
                 label="Animate the Caramel Cleaners booking logo"
               />
             </div>
-            <ul
-              className="booking-trust"
-              aria-label="Why homeowners choose Caramel Cleaners"
-            >
-              <li data-reveal="up">More time for what matters</li>
-              <li data-reveal="up" data-reveal-delay="70">
-                Detail-focused cleaning
-              </li>
-              <li data-reveal="up" data-reveal-delay="140">
-                Scheduling that fits your life
-              </li>
-            </ul>
             <p
-              className="booking-note"
+              className="booking-contact-note"
               data-reveal="up"
-              data-reveal-delay="90"
+              data-reveal-delay="60"
             >
-              Tell us about your home as accurately as you can. If its size or
-              condition differs materially from the booking details, we will
-              review any pricing adjustment with you before additional work
-              begins.
+              Questions, event cleans, special requests, partnerships, or
+              larger recurring needs? Email{" "}
+              <a href="mailto:contact@caramelcleaners.com">
+                contact@caramelcleaners.com
+              </a>{" "}
+              or text <a href="sms:+14632244181">(463) 224-4181</a>. (We
+              respond fast.)
             </p>
           </section>
 
@@ -110,7 +101,13 @@ export default function BookingPage() {
               Caramel Cleaners
             </a>
           </div>
-          <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+          <div className="footer-meta">
+            <a href="mailto:contact@caramelcleaners.com">
+              contact@caramelcleaners.com
+            </a>
+            <a href="sms:+14632244181">Text: (463) 224-4181</a>
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
+          </div>
         </footer>
       </div>
     </>

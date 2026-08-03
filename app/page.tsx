@@ -24,10 +24,10 @@ const processSteps = [
 
 const services = [
   {
-    number: "01",
+    number: "1",
     title: "Routine Clean",
     description:
-      "A dependable reset for homes that receive regular professional care.",
+      "The ongoing upkeep visit for homes that already have a clean baseline.",
     includes: [
       "Kitchen surfaces and appliance exteriors",
       "Bathroom fixtures and surfaces",
@@ -35,7 +35,7 @@ const services = [
     ],
   },
   {
-    number: "02",
+    number: "2",
     title: "Detailed / First Clean",
     description:
       "A top-to-bottom refresh for first visits or spaces needing extra attention.",
@@ -47,7 +47,7 @@ const services = [
     ],
   },
   {
-    number: "03",
+    number: "3",
     title: "Move-In / Move-Out Clean",
     description:
       "A detailed clean designed for an empty home and a smoother transition.",
@@ -56,6 +56,31 @@ const services = [
       "Inside empty cabinets and drawers",
       "Kitchen, bathroom, floors, and baseboards",
     ],
+  },
+];
+
+const recurringPlans = [
+  {
+    cadence: "Weekly",
+    discount: "15%",
+    label: "Best recurring rate",
+    description:
+      "For busy homes that feel best with a consistently clean baseline.",
+  },
+  {
+    cadence: "Every two weeks",
+    discount: "10%",
+    label: "Most popular schedule",
+    description:
+      "The easiest balance of ongoing upkeep, value, and breathing room.",
+    popular: true,
+  },
+  {
+    cadence: "Every four weeks",
+    discount: "5%",
+    label: "Monthly rhythm",
+    description:
+      "A dependable monthly reset that still rewards a regular schedule.",
   },
 ];
 
@@ -85,8 +110,9 @@ export default function Home() {
 
           <nav className="site-nav" aria-label="Primary navigation">
             <SectionLink targetId="how-it-works">How it works</SectionLink>
-            <SectionLink targetId="standards">Our standards</SectionLink>
             <SectionLink targetId="services">Services</SectionLink>
+            <SectionLink targetId="recurring">Recurring plans</SectionLink>
+            <SectionLink targetId="contact">Contact</SectionLink>
           </nav>
 
           <a
@@ -101,14 +127,18 @@ export default function Home() {
         <main id="main-content">
           <section className="hero" aria-labelledby="hero-heading">
             <div className="hero-copy" data-reveal="up">
+              <p className="hero-location">
+                Now servicing homes in Carmel, Westfield, Zionsville,
+                Noblesville, and Fishers, Indiana
+              </p>
               <h1 id="hero-heading">
                 A cleaner home,
                 <br />
                 <span>without the guesswork.</span>
               </h1>
               <p className="hero-lede">
-                Compare your options, customize the details, and book your
-                clean online, all without waiting for a quote.
+                Book a one-time clean or choose a recurring schedule that saves
+                you up to 15% on every visit.
               </p>
 
               <div className="hero-actions">
@@ -119,8 +149,8 @@ export default function Home() {
                 >
                   Book now <ArrowIcon />
                 </a>
-                <SectionLink className="text-link" targetId="how-it-works">
-                  See how it works <ArrowIcon direction="down" />
+                <SectionLink className="text-link" targetId="recurring">
+                  Explore recurring plans <ArrowIcon direction="down" />
                 </SectionLink>
               </div>
             </div>
@@ -214,9 +244,9 @@ export default function Home() {
                 <div>
                   <h3>Liability insured</h3>
                   <p>
-                    Liability coverage is maintained for added protection in
-                    the unlikely event of accidental property damage during
-                    your appointment.
+                    Covered by a $1,000,000 general liability policy for added
+                    protection in the unlikely event of accidental property
+                    damage during your appointment.
                   </p>
                 </div>
               </li>
@@ -230,10 +260,11 @@ export default function Home() {
             tabIndex={-1}
           >
             <div className="section-heading" data-reveal="up">
-              <h2 id="services-heading">Start with the clean you need.</h2>
+              <h2 id="services-heading">Choose how your cleaning starts.</h2>
               <p>
-                Every home is different. Choose a starting point, then
-                personalize the rooms and details that matter to you.
+                New recurring clients typically begin with a Detailed / First
+                Clean, then move into Routine Clean on their preferred schedule.
+                Move-In / Move-Out is available for one-time transitions.
               </p>
             </div>
 
@@ -289,6 +320,114 @@ export default function Home() {
             </div>
           </section>
 
+          <section
+            className="recurring-section"
+            id="recurring"
+            aria-labelledby="recurring-heading"
+            tabIndex={-1}
+          >
+            <div className="recurring-heading">
+              <div data-reveal="left">
+                <p className="recurring-kicker">Recurring cleaning</p>
+                <h2 id="recurring-heading">More consistency. Less per visit.</h2>
+              </div>
+              <div className="recurring-intro" data-reveal="right">
+                <p>
+                  Choose the rhythm that fits your home. Your recurring savings
+                  are applied automatically when you select a frequency during
+                  booking.
+                </p>
+              </div>
+            </div>
+
+            <div
+              className="recurring-plans"
+              aria-label="Recurring cleaning plan comparison"
+            >
+              {recurringPlans.map((plan, index) => (
+                <article
+                  className="recurring-plan"
+                  key={plan.cadence}
+                  data-reveal="up"
+                  data-reveal-delay={index * 70}
+                >
+                  <div className="recurring-plan-label">
+                    <span>{plan.label}</span>
+                    {plan.popular ? (
+                      <span className="recurring-popular">Popular</span>
+                    ) : null}
+                  </div>
+                  <h3>{plan.cadence}</h3>
+                  <p className="recurring-discount">
+                    <strong>{plan.discount}</strong>
+                    <span>off each visit</span>
+                  </p>
+                  <p className="recurring-description">{plan.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="recurring-bottom" data-reveal="up">
+              <div>
+                <p className="recurring-price">
+                  <strong>
+                    Routine Clean is $0.11 per square foot with a $149 minimum.
+                  </strong>{" "}
+                  Your discount is applied when you choose a recurring
+                  frequency.
+                </p>
+                <p className="recurring-note">
+                  Recurring service typically begins after a Detailed / First
+                  Clean. Fixed extras are priced separately and are not
+                  discounted.
+                </p>
+              </div>
+              <a
+                className="button button-caramel"
+                href="./book/"
+                data-analytics-event="book_now_click"
+              >
+                Start recurring service <ArrowIcon />
+              </a>
+            </div>
+          </section>
+
+          <section
+            className="contact-section"
+            id="contact"
+            aria-labelledby="contact-heading"
+            tabIndex={-1}
+          >
+            <div className="contact-heading" data-reveal="left">
+              <p className="contact-kicker">Have something else in mind?</p>
+              <h2 id="contact-heading">Let’s talk about the clean you need.</h2>
+            </div>
+            <div className="contact-details" data-reveal="right">
+              <p>
+                Planning an event, looking for a specific clean, or have a
+                special request? Tell us what you’re working with and we’ll help
+                you find the right approach.
+              </p>
+              <p>
+                We also partner with realtors and companies on recurring,
+                move-related, and larger-scale cleaning needs.
+              </p>
+              <p className="contact-methods-label">Email or text us at</p>
+              <a
+                className="contact-email"
+                href="mailto:contact@caramelcleaners.com"
+              >
+                contact@caramelcleaners.com <ArrowIcon />
+              </a>
+              <p className="contact-text">
+                <a href="sms:+14632244181">(463) 224-4181</a>
+              </p>
+              <p className="contact-response">
+                P.S. We’re quick to respond!
+              </p>
+            </div>
+          </section>
+
           <section className="closing-section">
             <LogoMark
               src="./brand-mark.png"
@@ -319,14 +458,20 @@ export default function Home() {
               Caramel Cleaners
             </SectionLink>
           </div>
-          <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+          <div className="footer-meta">
+            <a href="mailto:contact@caramelcleaners.com">
+              contact@caramelcleaners.com
+            </a>
+            <a href="sms:+14632244181">Text: (463) 224-4181</a>
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
+          </div>
         </footer>
       </div>
 
       <aside className="mobile-book-dock" aria-label="Quick booking">
         <span>
-          <strong>Ready for a reset?</strong>
-          <small>See your price online.</small>
+          <strong>Save with recurring care.</strong>
+          <small>Up to 15% off each visit.</small>
         </span>
         <a
           href="./book/"

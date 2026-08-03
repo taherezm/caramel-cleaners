@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Caramel Cleaners",
   },
   description:
-    "Book home cleaning with vetted, extensively background-checked professionals covered by liability insurance.",
+    "Local one-time and recurring home cleaning for Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana.",
   icons: {
     icon: [
       {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
+      "Save with weekly, biweekly, or monthly home cleaning in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana.",
     type: "website",
     url: "https://caramelcleaners.com/",
     siteName: "Caramel Cleaners",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Caramel Cleaners | Home Cleaning Made Simple",
     description:
-      "Home cleaning from vetted, extensively background-checked professionals covered by liability insurance.",
+      "Save with weekly, biweekly, or monthly home cleaning in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana.",
     images: ["og.png?v=wordmark-20260801"],
   },
 };

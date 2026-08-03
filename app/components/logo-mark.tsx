@@ -7,8 +7,6 @@ type LogoMarkProps = {
   className?: string;
   label?: string;
   href?: string;
-  dataReveal?: string;
-  dataRevealDelay?: number | string;
 };
 
 export default function LogoMark({
@@ -16,8 +14,6 @@ export default function LogoMark({
   className = "",
   label,
   href,
-  dataReveal,
-  dataRevealDelay,
 }: LogoMarkProps) {
   const playAnimation = (event: MouseEvent<HTMLButtonElement>) => {
     const logo = event.currentTarget;
@@ -57,8 +53,6 @@ export default function LogoMark({
         className={classNames}
         href={href}
         aria-label={label ?? "Caramel Cleaners home"}
-        data-reveal={dataReveal}
-        data-reveal-delay={dataRevealDelay}
       >
         {artwork}
       </a>
@@ -72,8 +66,6 @@ export default function LogoMark({
       aria-label={label ?? "Play the Caramel Cleaners logo animation"}
       onClick={playAnimation}
       onAnimationEnd={finishAnimation}
-      data-reveal={dataReveal}
-      data-reveal-delay={dataRevealDelay}
     >
       {artwork}
     </button>

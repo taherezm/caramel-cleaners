@@ -17,7 +17,7 @@ to be configured before customers can complete a booking.
 - `/thank-you/` — post-booking confirmation page.
 - Responsive desktop and mobile layouts, including a mobile booking dock.
 - Accessible skip links, focus handling, reduced-motion support, native
-  collapsible service details, and interactive logo/scroll animations.
+  collapsible service details, and intentional interactive logo animations.
 - Search and social metadata, circular favicon assets, and an installable web
   app manifest.
 - Vendor-neutral booking events dispatched as `caramel:analytics` and pushed to

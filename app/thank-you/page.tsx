@@ -12,10 +12,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <div className="site-shell confirmation-shell">
-      <header
-        className="site-header compact-header"
-        data-reveal="down"
-      >
+      <header className="site-header compact-header">
         <div className="brand">
           <LogoMark
             src="../brand-mark.png"
@@ -37,23 +34,16 @@ export default function ThankYouPage() {
           src="../brand-mark.png"
           className="logo-mark-confirmation"
           label="Animate the Caramel Cleaners confirmation logo"
-          dataReveal="scale"
         />
-        <p className="section-kicker" data-reveal="up">
-          You’re all set
-        </p>
-        <h1 data-reveal="up" data-reveal-delay="60">
-          We received your booking.
-        </h1>
-        <p data-reveal="up" data-reveal-delay="120">
+        <p className="section-kicker">You’re all set</p>
+        <h1>We received your booking.</h1>
+        <p>
           Look for a confirmation with your appointment details. We look
           forward to making your home feel lighter.
         </p>
         <a
           className="button button-dark"
           href="../"
-          data-reveal="up"
-          data-reveal-delay="180"
         >
           Return home <ArrowIcon />
         </a>

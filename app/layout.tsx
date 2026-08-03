@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import AnalyticsBridge from "./components/analytics-bridge";
-import ScrollReveal from "./components/scroll-reveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -90,7 +89,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AnalyticsBridge />
-        <ScrollReveal />
         {children}
       </body>
     </html>

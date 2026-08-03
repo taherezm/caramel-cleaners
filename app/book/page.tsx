@@ -36,10 +36,7 @@ export default function BookingPage() {
       </a>
 
       <div className="site-shell booking-site-shell">
-        <header
-          className="site-header compact-header"
-          data-reveal="down"
-        >
+        <header className="site-header compact-header">
           <div className="brand">
             <LogoMark
               src="../brand-mark.png"
@@ -61,7 +58,7 @@ export default function BookingPage() {
 
         <main className="booking-main" id="booking-form">
           <section className="booking-intro" aria-labelledby="booking-heading">
-            <div className="booking-intro-heading" data-reveal="up">
+            <div className="booking-intro-heading">
               <div>
                 <p className="section-kicker">Book your clean</p>
                 <h1 id="booking-heading">
@@ -74,27 +71,32 @@ export default function BookingPage() {
                 label="Animate the Caramel Cleaners booking logo"
               />
             </div>
-            <p
-              className="booking-contact-note"
-              data-reveal="up"
-              data-reveal-delay="60"
-            >
-              Questions, event cleans, special requests, partnerships, or
-              larger recurring needs? Email{" "}
-              <a href="mailto:contact@caramelcleaners.com">
-                contact@caramelcleaners.com
-              </a>{" "}
-              or text <a href="sms:+14632244181">(463) 224-4181</a>. (We
-              respond fast.)
+            <p className="booking-contact-note">
+              <span className="booking-contact-copy">
+                Questions, event cleans, special requests, partnerships, or
+                larger recurring needs?
+              </span>
+              <span className="booking-contact-method">
+                Email
+                <a href="mailto:contact@caramelcleaners.com">
+                  contact@caramelcleaners.com
+                </a>
+              </span>
+              <span className="booking-contact-method">
+                or text <a href="sms:+14632244181">(463) 224-4181</a>.
+              </span>
+              <span className="booking-contact-response">
+                (We respond fast.)
+              </span>
             </p>
           </section>
 
-          <div data-reveal="up">
+          <div>
             <BookingEmbed embedUrl={bookingEmbedUrl} />
           </div>
         </main>
 
-        <footer className="site-footer booking-footer" data-reveal="up">
+        <footer className="site-footer booking-footer">
           <div className="brand footer-brand">
             <LogoMark src="../brand-mark.png" className="logo-mark-footer" />
             <a className="brand-name" href="../">
@@ -106,7 +108,7 @@ export default function BookingPage() {
               contact@caramelcleaners.com
             </a>
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
-            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
+            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
           </div>
         </footer>
       </div>

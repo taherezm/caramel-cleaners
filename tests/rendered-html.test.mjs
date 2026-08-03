@@ -3,6 +3,22 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const output = new URL("../dist/client/", import.meta.url);
+const source = new URL("../app/", import.meta.url);
+
+test("delays the mobile booking dock on each fresh visit", async () => {
+  const component = await readFile(
+    new URL("components/mobile-book-dock.tsx", source),
+    "utf8",
+  );
+  const styles = await readFile(new URL("globals.css", source), "utf8");
+
+  assert.match(component, /MOBILE_BOOK_DOCK_DELAY_MS = 3 \* 60 \* 1000/);
+  assert.match(component, /window\.setTimeout/);
+  assert.match(component, /aria-hidden=\{!isVisible\}/);
+  assert.match(component, /tabIndex=\{isVisible \? 0 : -1\}/);
+  assert.match(styles, /\.mobile-book-dock\.mobile-book-dock-visible/);
+  assert.match(styles, /pointer-events: none/);
+});
 
 test("renders a focused Caramel Cleaners homepage", async () => {
   const html = await readFile(new URL("index.html", output), "utf8");
@@ -14,9 +30,9 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /without the guesswork/);
   assert.match(
     html,
-    /Now servicing homes in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana/,
+    /Now cleaning homes in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana/,
   );
-  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
+  assert.match(html, /© 2026 Caramel Cleaners\. All rights reserved\./);
   assert.doesNotMatch(html, /id="service-area"/);
   assert.doesNotMatch(html, /Home cleaning built around our local communities/);
   assert.match(html, /Routine Clean/);
@@ -123,9 +139,15 @@ test("renders a dedicated booking page with a safe missing-config state", async 
   assert.doesNotMatch(html, /Scheduling that fits your life/);
   assert.doesNotMatch(html, /Locally serving/);
   assert.doesNotMatch(html, /Tell us about your home as accurately as you can/);
-  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
+  assert.match(html, /© 2026 Caramel Cleaners\. All rights reserved\./);
   assert.doesNotMatch(html, /brand-descriptor|>Housecleaning</);
   assert.match(html, /Questions, event cleans, special requests, partnerships/);
+  assert.match(html, /class="booking-contact-copy"/);
+  assert.equal(
+    (html.match(/class="booking-contact-method"/g) ?? []).length,
+    2,
+  );
+  assert.match(html, /class="booking-contact-response"/);
   assert.match(html, /\(463\) 224-4181/);
   assert.doesNotMatch(html, /\(463\)-224-4181/);
   assert.match(html, /\(We\s*respond fast\.\)/);
@@ -194,6 +216,11 @@ test("stacks the how-it-works flow within the mobile viewport", async () => {
   assert.match(
     css,
     /\.hero-actions \.text-link\s*\{[^}]*width:\s*100%/,
+  );
+  assert.match(css, /\.hero\s*\{[^}]*padding:\s*56px 0 0/);
+  assert.match(
+    css,
+    /@media \(max-width: 760px\)[\s\S]*?\.hero\s*\{[^}]*padding-top:\s*34px/,
   );
 });
 
@@ -283,7 +310,7 @@ test("uses liquid glass selectively without flattening key brand surfaces", asyn
   assert.match(css, /\.trust-section\s*\{[^}]*background:\s*var\(--ink\)/);
 });
 
-test("adds native scroll reveals without intercepting document scrolling", async () => {
+test("keeps page content still while preserving intentional interactions", async () => {
   const homeHtml = await readFile(new URL("index.html", output), "utf8");
   const bookingHtml = await readFile(
     new URL("book/index.html", output),
@@ -293,22 +320,10 @@ test("adds native scroll reveals without intercepting document scrolling", async
     new URL("thank-you/index.html", output),
     "utf8",
   );
-  const reveal = await readFile(
-    new URL("../app/components/scroll-reveal.tsx", import.meta.url),
-    "utf8",
-  );
-
-  assert.match(homeHtml, /data-reveal="right"/);
-  assert.match(homeHtml, /data-reveal-delay="140"/);
-  assert.match(bookingHtml, /data-reveal="up"/);
-  assert.match(confirmationHtml, /data-reveal-delay="180"/);
-  assert.match(reveal, /IntersectionObserver/);
-  assert.match(reveal, /prefers-reduced-motion/);
-  assert.match(reveal, /element\.animate/);
-  assert.doesNotMatch(
-    reveal,
-    /scrollTo|scrollIntoView|preventDefault|touchmove|wheel/,
-  );
+  assert.doesNotMatch(homeHtml, /data-reveal/);
+  assert.doesNotMatch(bookingHtml, /data-reveal/);
+  assert.doesNotMatch(confirmationHtml, /data-reveal/);
+  assert.match(homeHtml, /Play the Caramel Cleaners logo animation/);
 });
 
 test("section links do not leave the document locked to a hash target", async () => {

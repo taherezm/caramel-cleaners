@@ -1,5 +1,6 @@
 import ArrowIcon from "./components/arrow-icon";
 import LogoMark from "./components/logo-mark";
+import MobileBookDock from "./components/mobile-book-dock";
 import SectionLink from "./components/section-link";
 
 export const dynamic = "force-static";
@@ -92,7 +93,7 @@ export default function Home() {
       </a>
 
       <div className="site-shell home-site-shell" id="top">
-        <header className="site-header" data-reveal="down">
+        <header className="site-header">
           <div className="brand">
             <LogoMark
               src="./brand-mark.png"
@@ -126,9 +127,9 @@ export default function Home() {
 
         <main id="main-content">
           <section className="hero" aria-labelledby="hero-heading">
-            <div className="hero-copy" data-reveal="up">
+            <div className="hero-copy">
               <p className="hero-location">
-                Now servicing homes in Carmel, Westfield, Zionsville,
+                Now cleaning homes in Carmel, Westfield, Zionsville,
                 Noblesville, and Fishers, Indiana
               </p>
               <h1 id="hero-heading">
@@ -155,11 +156,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="hero-brand-art"
-              data-reveal="right"
-              data-reveal-delay="90"
-            >
+            <div className="hero-brand-art">
               <LogoMark
                 src="./brand-mark.png"
                 className="logo-mark-hero"
@@ -169,17 +166,9 @@ export default function Home() {
               <span className="hero-art-ring hero-art-ring-two" />
             </div>
 
-            <ol
-              className="process-steps"
-              id="how-it-works"
-              tabIndex={-1}
-            >
-              {processSteps.map((step, index) => (
-                <li
-                  key={step.number}
-                  data-reveal="up"
-                  data-reveal-delay={index * 70}
-                >
+            <ol className="process-steps" id="how-it-works" tabIndex={-1}>
+              {processSteps.map((step) => (
+                <li key={step.number}>
                   <span className="process-number">{step.number}</span>
                   <div>
                     <h2>{step.title}</h2>
@@ -196,7 +185,7 @@ export default function Home() {
             aria-labelledby="trust-heading"
             tabIndex={-1}
           >
-            <div className="trust-copy" data-reveal="left">
+            <div className="trust-copy">
               <p className="trust-kicker">Trust is part of the service</p>
               <h2 id="trust-heading">
                 The person entering your home matters.
@@ -217,7 +206,7 @@ export default function Home() {
             </div>
 
             <ol className="trust-standards" aria-label="Cleaner standards">
-              <li data-reveal="right">
+              <li>
                 <span>01</span>
                 <div>
                   <h3>Carefully vetted</h3>
@@ -228,7 +217,7 @@ export default function Home() {
                   </p>
                 </div>
               </li>
-              <li data-reveal="right" data-reveal-delay="70">
+              <li>
                 <span>02</span>
                 <div>
                   <h3>Extensive background checks</h3>
@@ -239,7 +228,7 @@ export default function Home() {
                   </p>
                 </div>
               </li>
-              <li data-reveal="right" data-reveal-delay="140">
+              <li>
                 <span>03</span>
                 <div>
                   <h3>Liability insured</h3>
@@ -259,7 +248,7 @@ export default function Home() {
             aria-labelledby="services-heading"
             tabIndex={-1}
           >
-            <div className="section-heading" data-reveal="up">
+            <div className="section-heading">
               <h2 id="services-heading">Choose how your cleaning starts.</h2>
               <p>
                 New recurring clients typically begin with a Detailed / First
@@ -269,14 +258,12 @@ export default function Home() {
             </div>
 
             <div className="service-comparison">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <article
                   className={
                     service.tag ? "service-tier service-tier-featured" : "service-tier"
                   }
                   key={service.title}
-                  data-reveal="up"
-                  data-reveal-delay={index * 90}
                 >
                   <div className="service-tier-top">
                     <span className="service-number">{service.number}</span>
@@ -327,11 +314,11 @@ export default function Home() {
             tabIndex={-1}
           >
             <div className="recurring-heading">
-              <div data-reveal="left">
+              <div>
                 <p className="recurring-kicker">Recurring cleaning</p>
                 <h2 id="recurring-heading">More consistency. Less per visit.</h2>
               </div>
-              <div className="recurring-intro" data-reveal="right">
+              <div className="recurring-intro">
                 <p>
                   Choose the rhythm that fits your home. Your recurring savings
                   are applied automatically when you select a frequency during
@@ -344,12 +331,10 @@ export default function Home() {
               className="recurring-plans"
               aria-label="Recurring cleaning plan comparison"
             >
-              {recurringPlans.map((plan, index) => (
+              {recurringPlans.map((plan) => (
                 <article
                   className="recurring-plan"
                   key={plan.cadence}
-                  data-reveal="up"
-                  data-reveal-delay={index * 70}
                 >
                   <div className="recurring-plan-label">
                     <span>{plan.label}</span>
@@ -367,7 +352,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="recurring-bottom" data-reveal="up">
+            <div className="recurring-bottom">
               <div>
                 <p className="recurring-price">
                   <strong>
@@ -398,11 +383,11 @@ export default function Home() {
             aria-labelledby="contact-heading"
             tabIndex={-1}
           >
-            <div className="contact-heading" data-reveal="left">
+            <div className="contact-heading">
               <p className="contact-kicker">Have something else in mind?</p>
               <h2 id="contact-heading">Let’s talk about the clean you need.</h2>
             </div>
-            <div className="contact-details" data-reveal="right">
+            <div className="contact-details">
               <p>
                 Planning an event, looking for a specific clean, or have a
                 special request? Tell us what you’re working with and we’ll help
@@ -433,9 +418,8 @@ export default function Home() {
               src="./brand-mark.png"
               className="logo-mark-closing"
               label="Animate the Caramel Cleaners closing logo"
-              dataReveal="scale"
             />
-            <div data-reveal="up" data-reveal-delay="70">
+            <div>
               <p>Thoughtfully planned. Thoroughly cleaned.</p>
               <h2>Come home to a cleaner, calmer space.</h2>
             </div>
@@ -443,15 +427,13 @@ export default function Home() {
               className="button button-dark"
               href="./book/"
               data-analytics-event="book_now_click"
-              data-reveal="up"
-              data-reveal-delay="140"
             >
               Book your clean <ArrowIcon />
             </a>
           </section>
         </main>
 
-        <footer className="site-footer" data-reveal="up">
+        <footer className="site-footer">
           <div className="brand footer-brand">
             <LogoMark src="./brand-mark.png" className="logo-mark-footer" />
             <SectionLink className="brand-name" targetId="top">
@@ -463,24 +445,12 @@ export default function Home() {
               contact@caramelcleaners.com
             </a>
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
-            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
+            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
           </div>
         </footer>
       </div>
 
-      <aside className="mobile-book-dock" aria-label="Quick booking">
-        <span>
-          <strong>Save with recurring care.</strong>
-          <small>Up to 15% off each visit.</small>
-        </span>
-        <a
-          href="./book/"
-          data-analytics-event="book_now_click"
-          aria-label="Book your clean"
-        >
-          Book now <ArrowIcon />
-        </a>
-      </aside>
+      <MobileBookDock />
     </>
   );
 }

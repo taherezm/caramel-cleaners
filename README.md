@@ -1,8 +1,5 @@
 # Caramel Cleaners
 
-Source for [caramelcleaners.com](https://caramelcleaners.com), a responsive
-marketing and online-booking website for Caramel Cleaners.
-
 The current site helps customers compare cleaning services, understand the
 company's cleaner standards, and see how the online booking process will work.
 The BookingKoala integration is implemented, but the live form URL still needs

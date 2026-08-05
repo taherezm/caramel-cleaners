@@ -28,34 +28,41 @@ const services = [
     number: "1",
     title: "Routine Clean",
     description:
-      "The ongoing upkeep visit for homes that already have a clean baseline.",
+      "Recurring upkeep for a home that's already at a clean baseline.",
     includes: [
-      "Kitchen surfaces and appliance exteriors",
-      "Bathroom fixtures and surfaces",
-      "Dusting, floors, and a general room reset",
+      "Kitchen counters, sink, stovetop, and appliance exteriors",
+      "Bathrooms scrubbed and disinfected: tub, toilet, sink, and mirrors",
+      "Dusting, mirrors, and cobweb removal in every room",
+      "Floors vacuumed and mopped throughout",
+      "Beds made, trash emptied, rooms straightened",
     ],
   },
   {
     number: "2",
-    title: "Detailed / First Clean",
+    title: "Deep Clean",
     description:
-      "A top-to-bottom refresh for first visits or spaces needing extra attention.",
+      "The reset that establishes the baseline. Everything in a Routine Clean, plus:",
     tag: "Most popular",
+    sublabel: "Recommended first visit",
     includes: [
-      "Everything included in a Routine Clean",
-      "Baseboards, doors, trim, and detail areas",
-      "Extra attention to buildup throughout the home",
+      "Baseboards, doors, and trim hand-washed, not just dusted",
+      "Cabinet fronts degreased; grates, drip pans, and knobs scrubbed",
+      "Tile and grout scrubbed; hard water and soap scum removed",
+      "Vents, ceiling fans, light fixtures, and blinds detailed",
+      "High dusting, wall spot-washing, and under-furniture vacuuming",
     ],
   },
   {
     number: "3",
     title: "Move-In / Move-Out Clean",
     description:
-      "A detailed clean designed for an empty home and a smoother transition.",
+      "A full Deep Clean on an empty home, plus every interior surface.",
     includes: [
-      "Detailed cleaning of an empty home",
-      "Inside empty cabinets and drawers",
-      "Kitchen, bathroom, floors, and baseboards",
+      "Inside all cabinets, drawers, closets, and the pantry",
+      "Inside the refrigerator, oven, dishwasher, and microwave",
+      "All baseboards, doors, and trim washed throughout every room",
+      "Interior windows, sills, tracks, vents, and fixtures",
+      "Walls spot-washed; floors washed edge to edge",
     ],
   },
 ];
@@ -113,6 +120,8 @@ export default function Home() {
             <SectionLink targetId="how-it-works">How it works</SectionLink>
             <SectionLink targetId="services">Services</SectionLink>
             <SectionLink targetId="recurring">Recurring plans</SectionLink>
+            <a href="./checklist/">Checklist</a>
+            <a href="./faq/">FAQ</a>
             <SectionLink targetId="contact">Contact</SectionLink>
           </nav>
 
@@ -251,9 +260,9 @@ export default function Home() {
             <div className="section-heading">
               <h2 id="services-heading">Choose how your cleaning starts.</h2>
               <p>
-                New recurring clients typically begin with a Detailed / First
-                Clean, then move into Routine Clean on their preferred schedule.
-                Move-In / Move-Out is available for one-time transitions.
+                New clients typically start with a Deep Clean, then move to
+                Routine Clean on a recurring schedule. Move-In / Move-Out is a
+                one-time service for empty homes.
               </p>
             </div>
 
@@ -268,7 +277,14 @@ export default function Home() {
                   <div className="service-tier-top">
                     <span className="service-number">{service.number}</span>
                     {service.tag ? (
-                      <span className="service-tag">{service.tag}</span>
+                      <span className="service-tag-group">
+                        <span className="service-tag">{service.tag}</span>
+                        {service.sublabel ? (
+                          <span className="service-sub-label">
+                            {service.sublabel}
+                          </span>
+                        ) : null}
+                      </span>
                     ) : null}
                   </div>
                   <h3>{service.title}</h3>
@@ -305,6 +321,10 @@ export default function Home() {
                 </article>
               ))}
             </div>
+            <a className="service-checklist-link" href="./checklist/">
+              See the full checklist: what&apos;s included and what isn&apos;t
+              <ArrowIcon />
+            </a>
           </section>
 
           <section
@@ -333,7 +353,11 @@ export default function Home() {
             >
               {recurringPlans.map((plan) => (
                 <article
-                  className="recurring-plan"
+                  className={
+                    plan.popular
+                      ? "recurring-plan recurring-plan-featured"
+                      : "recurring-plan"
+                  }
                   key={plan.cadence}
                 >
                   <div className="recurring-plan-label">
@@ -362,9 +386,8 @@ export default function Home() {
                   frequency.
                 </p>
                 <p className="recurring-note">
-                  Recurring service typically begins after a Detailed / First
-                  Clean. Fixed extras are priced separately and are not
-                  discounted.
+                  Recurring service typically begins after a Deep Clean. Fixed
+                  extras are priced separately and are not discounted.
                 </p>
               </div>
               <a
@@ -445,6 +468,8 @@ export default function Home() {
               contact@caramelcleaners.com
             </a>
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
+            <a href="./checklist/">Cleaning checklist</a>
+            <a href="./faq/">Frequently asked questions</a>
             <p>© 2026 Caramel Cleaners. All rights reserved.</p>
           </div>
         </footer>

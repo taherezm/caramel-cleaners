@@ -8,8 +8,12 @@ to be configured before customers can complete a booking.
 ## Current experience
 
 - `/` — marketing homepage with the three-step booking process, cleaner trust
-  standards, and comparison cards for Routine, Detailed / First, and Move-In /
+  standards, and comparison cards for Routine, Deep, and Move-In /
   Move-Out cleaning.
+- `/checklist/` — complete cleaning scope with a quick comparison,
+  service-by-service task lists, exclusions, and arrival preparation guidance.
+- `/faq/` — categorized answers about services, pricing, supplies, scheduling,
+  safety, recurring cleaning, and the satisfaction promise.
 - `/book/` — branded booking page. The live deployment currently shows the
   safe missing-configuration state; after an HTTPS BookingKoala URL is added,
   it provides a responsive iframe, loading state, and link to open the secure
@@ -77,6 +81,7 @@ safe "Online booking is being connected" message instead of an iframe.
 app/
   page.tsx                  Homepage
   book/page.tsx             Booking experience
+  checklist/page.tsx        Complete cleaning scope
   thank-you/page.tsx        Booking confirmation
   components/               Shared interactive components
   globals.css               Site-wide layout and visual system

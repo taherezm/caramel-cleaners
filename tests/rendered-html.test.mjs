@@ -36,9 +36,24 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.doesNotMatch(html, /id="service-area"/);
   assert.doesNotMatch(html, /Home cleaning built around our local communities/);
   assert.match(html, /Routine Clean/);
-  assert.match(html, /Detailed \/ First Clean/);
+  assert.match(html, /Deep Clean/);
   assert.match(html, /Move-In \/ Move-Out Clean/);
   assert.match(html, /Most popular/);
+  assert.match(html, /Recommended first visit/);
+  assert.match(
+    html,
+    /New clients typically start with a Deep Clean, then move to Routine Clean on a recurring schedule/,
+  );
+  assert.match(html, /Kitchen counters, sink, stovetop, and appliance exteriors/);
+  assert.match(html, /Baseboards, doors, and trim hand-washed, not just dusted/);
+  assert.match(html, /Inside all cabinets, drawers, closets, and the pantry/);
+  assert.match(
+    html,
+    /See the full checklist: what(?:'|&#x27;)s included and what isn(?:'|&#x27;)t/,
+  );
+  assert.doesNotMatch(html, /—/);
+  assert.ok((html.match(/href="\.\/checklist\/"/g) ?? []).length >= 3);
+  assert.ok((html.match(/href="\.\/faq\/"/g) ?? []).length >= 2);
   assert.equal((html.match(/class="service-number">[123]<\/span>/g) ?? []).length, 3);
   assert.doesNotMatch(html, /class="service-number">0[123]<\/span>/);
   assert.match(html, /id="standards"/);
@@ -70,7 +85,7 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.match(html, /<strong>10%<\/strong>/);
   assert.match(html, /<strong>5%<\/strong>/);
   assert.match(html, /Routine Clean is \$0\.11 per square foot with a \$149 minimum/);
-  assert.match(html, /Recurring service typically begins after a Detailed \/ First Clean/);
+  assert.match(html, /Recurring service typically begins after a Deep Clean/);
   assert.match(html, /Animate the Caramel Cleaners closing logo/);
   assert.match(html, /Come home to a cleaner, calmer space/);
   assert.doesNotMatch(html, /Come home to more room to breathe/);
@@ -120,6 +135,107 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.doesNotMatch(html, /Come home to clean/);
   assert.doesNotMatch(html, /data-booking-provider="bookingkoala"/);
   assert.doesNotMatch(html, /Bedrooms|Next: Your home/);
+});
+
+test("renders the complete cleaning checklist", async () => {
+  const html = await readFile(new URL("checklist/index.html", output), "utf8");
+  const css = await readFile(new URL("globals.css", source), "utf8");
+
+  assert.match(
+    html,
+    /<title>What(?:'|&#x27;)s Included: Cleaning Checklist \| Caramel Cleaners<\/title>/i,
+  );
+  assert.match(
+    html,
+    /Exactly what(?:'|&#x27;)s included in a Routine, Deep, and Move-In\/Move-Out clean from Caramel Cleaners/,
+  );
+  assert.doesNotMatch(html, /Last updated:|August 5, 2026/);
+  assert.doesNotMatch(html, /—/);
+
+  for (const anchor of [
+    "quick-comparison",
+    "routine-clean",
+    "deep-clean",
+    "move-in-move-out",
+    "not-included",
+    "before-we-arrive",
+  ]) {
+    assert.match(html, new RegExp(`id="${anchor}"`));
+    assert.match(html, new RegExp(`href="#${anchor}"`));
+  }
+
+  const scopeHeadings = [...html.matchAll(/<h[23]([^>]*)>/g)];
+  assert.ok(scopeHeadings.length >= 16);
+  assert.ok(
+    scopeHeadings.every((heading) => /(?:^|\s)id="[^"]+"/.test(heading[1])),
+    "every checklist H2 and H3 should have a stable id",
+  );
+
+  assert.match(html, /Every tier below is cumulative/);
+  assert.match(html, /Dust reachable surfaces: furniture tops and fronts/);
+  assert.match(html, /Baseboards hand-washed full length in every room/);
+  assert.match(html, /Inside the oven, oven door glass, broiler drawer, and racks/);
+  assert.match(html, /Not included in a Deep Clean:/);
+  assert.match(html, /Not included in any clean/);
+  assert.match(html, /Clear counters and floors of personal items/);
+  assert.match(html, /aria-label="Included"/);
+  assert.match(html, /aria-label="Not included"/);
+  assert.match(html, /role="region"/);
+  assert.match(html, /class="comparison-scroll"/);
+  assert.match(html, /href="\.\.\/book\/"/);
+  assert.match(html, /href="\.\.\/"[^>]*aria-label="Caramel Cleaners home"/);
+  assert.doesNotMatch(html, /<details>/);
+  assert.doesNotMatch(html, /\$0\.11|\$149|per square foot|% off each visit/);
+  assert.doesNotMatch(html, />Add-ons<|>Extras</);
+
+  assert.match(css, /\.comparison-scroll\s*\{[^}]*overflow-x:\s*auto/);
+  assert.match(css, /@media print\s*\{/);
+  assert.match(
+    css,
+    /@media print[\s\S]*?\.checklist-site-shell \.site-header,[\s\S]*?display:\s*none !important/,
+  );
+  assert.match(
+    css,
+    /@media print[\s\S]*?\.checklist-main details:not\(\[open\]\)/,
+  );
+});
+
+test("renders the frequently asked questions page", async () => {
+  const html = await readFile(new URL("faq/index.html", output), "utf8");
+  const css = await readFile(new URL("globals.css", source), "utf8");
+
+  assert.match(
+    html,
+    /<title>Frequently Asked Questions \| Caramel Cleaners<\/title>/i,
+  );
+  assert.match(html, /Frequently asked questions/);
+  assert.match(html, /Services and pricing/);
+  assert.match(html, /Your appointment/);
+  assert.match(html, /Trust and satisfaction/);
+
+  for (const question of [
+    "What services do you offer?",
+    "Do you provide cleaning supplies?",
+    "How much will it cost to clean my home?",
+    "Are your cleaners insured?",
+    "Do I need to be present during the cleaning?",
+    "How long will the cleaning take?",
+    "Can I schedule a cleaning on weekends or evenings?",
+    "Do you offer recurring cleaning services?",
+    "What if I",
+  ]) {
+    assert.match(html, new RegExp(question.replace(/[?]/g, "\\?")));
+  }
+
+  assert.equal((html.match(/<details/g) ?? []).length, 9);
+  assert.match(html, /<details class="faq-item" open=""/);
+  assert.doesNotMatch(html, /bonded|COVID-19|social distancing/);
+  assert.match(html, /within 24 hours/);
+  assert.match(html, /contact@caramelcleaners\.com/);
+  assert.match(html, /aria-current="page">FAQ/);
+  assert.match(css, /\.faq-section\s*\{/);
+  assert.match(css, /\.faq-item\[open\] \.faq-toggle/);
+  assert.match(css, /\.faq-contact\s*\{/);
 });
 
 test("renders a dedicated booking page with a safe missing-config state", async () => {

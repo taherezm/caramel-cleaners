@@ -37,10 +37,10 @@ footage.
 | Service | Base rate |
 | --- | ---: |
 | Routine Clean | $0.11 per square foot |
-| Detailed / First Clean | $0.17 per square foot |
+| Deep Clean | $0.17 per square foot |
 | Move-In / Move-Out Clean | $0.21 per square foot |
 
-The Detailed / First Clean should be described as the recommended starting
+The Deep Clean should be described as the recommended starting
 point for first-time customers. Do not create another price calculator on the
 Caramel Cleaners website; BookingKoala must remain the source of live pricing.
 
@@ -68,7 +68,7 @@ Create these frequency options:
 | Every four weeks | 5% |
 | One time | 0% |
 
-Recurring service should begin only after a Detailed / First Clean unless an
+Recurring service should begin only after a Deep Clean unless an
 authorized team member approves another starting condition. Express that rule
 in the form and use dependencies where the account supports them.
 

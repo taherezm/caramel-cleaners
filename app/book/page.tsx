@@ -108,6 +108,8 @@ export default function BookingPage() {
               contact@caramelcleaners.com
             </a>
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
+            <a href="../checklist/">Cleaning checklist</a>
+            <a href="../faq/">Frequently asked questions</a>
             <p>© 2026 Caramel Cleaners. All rights reserved.</p>
           </div>
         </footer>

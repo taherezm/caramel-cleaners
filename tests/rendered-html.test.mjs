@@ -122,10 +122,21 @@ test("renders a focused Caramel Cleaners homepage", async () => {
     /class="logo-mark-button logo-mark-header" href="\.\/" aria-label="Caramel Cleaners home"/,
   );
   assert.doesNotMatch(html, /brand-wordmark\.png/);
+  assert.match(
+    html,
+    /rel="canonical" href="https:\/\/caramelcleaners\.com\/"/,
+  );
   assert.match(html, /site\.webmanifest/);
-  assert.match(html, /favicon\.ico\?v=circular-20260731/);
-  assert.match(html, /favicon\.png\?v=circular-20260731/);
-  assert.match(html, /apple-touch-icon\.png\?v=circular-20260731/);
+  assert.match(html, /href="https:\/\/caramelcleaners\.com\/favicon\.ico"/);
+  assert.match(
+    html,
+    /href="https:\/\/caramelcleaners\.com\/icon-192\.png" sizes="192x192" type="image\/png"/,
+  );
+  assert.match(html, /href="https:\/\/caramelcleaners\.com\/favicon\.png"/);
+  assert.match(
+    html,
+    /href="https:\/\/caramelcleaners\.com\/apple-touch-icon\.png"/,
+  );
   assert.match(html, /apple-mobile-web-app-capable/);
   assert.match(html, /theme-color/);
   assert.match(html, /og\.png\?v=wordmark-20260801/);

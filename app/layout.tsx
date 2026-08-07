@@ -4,8 +4,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://caramelcleaners.com/"),
+  alternates: {
+    canonical: "/",
+  },
   applicationName: "Caramel Cleaners",
-  manifest: "site.webmanifest",
+  manifest: "/site.webmanifest",
   appleWebApp: {
     capable: true,
     title: "Caramel Cleaners",
@@ -28,19 +31,24 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "favicon.ico?v=circular-20260731",
+        url: "/favicon.ico",
         sizes: "any",
       },
       {
-        url: "favicon.png?v=circular-20260731",
+        url: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.png",
         sizes: "512x512",
         type: "image/png",
       },
     ],
-    shortcut: "favicon.ico?v=circular-20260731",
+    shortcut: "/favicon.ico",
     apple: [
       {
-        url: "apple-touch-icon.png?v=circular-20260731",
+        url: "/apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
       },

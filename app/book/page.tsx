@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Book Your Clean",
   description:
     "Book one-time or recurring home cleaning in Carmel, Westfield, Zionsville, Noblesville, or Fishers with Caramel Cleaners.",
+  alternates: {
+    canonical: "/book/",
+  },
 };
 
 function getBookingEmbedUrl() {

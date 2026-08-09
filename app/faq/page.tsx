@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
     "Answers about Caramel Cleaners services, pricing, supplies, scheduling, insurance, recurring cleaning, and our satisfaction promise.",
+  alternates: {
+    canonical: "/faq/",
+  },
 };
 
 const faqSections = [

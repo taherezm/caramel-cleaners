@@ -7,6 +7,10 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Booking Received",
   description: "Your Caramel Cleaners booking has been received.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ThankYouPage() {

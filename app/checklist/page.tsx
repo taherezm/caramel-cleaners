@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "What's Included: Cleaning Checklist",
   description:
     "Exactly what's included in a Routine, Deep, and Move-In/Move-Out clean from Caramel Cleaners. Serving Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana.",
+  alternates: {
+    canonical: "/checklist/",
+  },
 };
 
 const comparisonRows = [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
 import BookingEmbed from "../components/booking-embed";
+import LegalFooterLinks from "../components/legal-footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -98,6 +99,13 @@ export default function BookingPage() {
           </section>
 
           <div>
+            <p className="booking-legal-note">
+              By submitting a booking, you confirm that you are at least 18 and
+              agree to our <a href="../terms/">Terms of Service</a>. Our{` `}
+              <a href="../privacy/">Privacy Policy</a> explains how we handle
+              booking, payment, access, and advertising information. Recurring
+              bookings authorize automatic charges for scheduled cleanings.
+            </p>
             <BookingEmbed embedUrl={bookingEmbedUrl} />
           </div>
         </main>
@@ -116,7 +124,8 @@ export default function BookingPage() {
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
             <a href="../checklist/">Cleaning checklist</a>
             <a href="../faq/">Frequently asked questions</a>
-            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+            <LegalFooterLinks rootHref="../" />
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>
       </div>

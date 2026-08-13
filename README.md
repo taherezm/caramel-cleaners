@@ -15,6 +15,10 @@ company's cleaner standards, and complete a booking through BookingKoala.
 - `/book/` — branded booking page with the live BookingKoala form, responsive
   resizing, a loading state, and a link to open the secure form separately.
 - `/thank-you/` — post-booking confirmation page.
+- `/privacy/` — privacy disclosures, retention practices, advertising choices,
+  and a process for customer privacy requests.
+- `/terms/` — booking, payment, cancellation, recurring-service, satisfaction,
+  property, and dispute terms.
 - Responsive desktop and mobile layouts, including a mobile booking dock.
 - Accessible skip links, focus handling, reduced-motion support, native
   collapsible service details, and intentional interactive logo animations.
@@ -77,6 +81,8 @@ app/
   page.tsx                  Homepage
   book/page.tsx             Booking experience
   checklist/page.tsx        Complete cleaning scope
+  privacy/page.tsx          Privacy Policy
+  terms/page.tsx            Terms of Service
   thank-you/page.tsx        Booking confirmation
   components/               Shared interactive components
   globals.css               Site-wide layout and visual system

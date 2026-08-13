@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
+import LegalFooterLinks from "../components/legal-footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -52,6 +53,22 @@ export default function ThankYouPage() {
           Return home <ArrowIcon />
         </a>
       </main>
+
+      <footer className="site-footer confirmation-footer">
+        <div className="brand footer-brand">
+          <LogoMark src="../brand-mark.png" className="logo-mark-footer" />
+          <a className="brand-name" href="../">
+            Caramel Cleaners
+          </a>
+        </div>
+        <div className="footer-meta">
+          <a href="mailto:contact@caramelcleaners.com">
+            contact@caramelcleaners.com
+          </a>
+          <LegalFooterLinks rootHref="../" />
+          <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

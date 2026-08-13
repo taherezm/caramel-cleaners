@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
+import LegalFooterLinks from "../components/legal-footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -68,7 +69,7 @@ const faqSections = [
       {
         question: "Are your cleaners insured?",
         answer:
-          "Yes, all our cleaners are fully insured for your peace of mind.",
+          "Each cleaning professional is required to maintain their own liability insurance before accepting appointments through Caramel Cleaners.",
       },
       {
         question: "What if I'm not satisfied with the cleaning?",
@@ -206,7 +207,8 @@ export default function FaqPage() {
             <a href="./" aria-current="page">
               Frequently asked questions
             </a>
-            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+            <LegalFooterLinks rootHref="../" />
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>
       </div>

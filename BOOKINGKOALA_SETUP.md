@@ -16,7 +16,6 @@ Before publishing a live form, confirm:
   linens, and trash-bin cleaning;
 - whether photo upload is enabled in the account;
 - the internal destination and response process for manual reviews;
-- final service area, cancellation, rescheduling, access, and payment policies;
 - whether customers may buy more than one Flex Cleaning unit per booking.
 
 Prices that have not been supplied are marked **PRICE TO CONFIRM** below. Do not
@@ -119,7 +118,11 @@ Add required fields for:
 - areas requiring extra attention;
 - parking or access instructions;
 - preferred contact method;
-- acceptance of service and rescheduling policies.
+- an unchecked, required acceptance checkbox linking to
+  `https://caramelcleaners.com/terms/` and acknowledging
+  `https://caramelcleaners.com/privacy/`;
+- a separate, clear recurring-payment authorization when a recurring frequency
+  is selected.
 
 Use this condition question:
 
@@ -166,9 +169,38 @@ Match the existing site with:
 Style the form inside BookingKoala's theme editor. Parent-page CSS cannot
 reliably style a cross-origin iframe.
 
-Enable the account's secure online payment flow and display the business's
-confirmed cancellation, rescheduling, payment, and card-hold language before
-the final booking action.
+Enable the account's secure online payment flow and display the confirmed
+payment and cancellation terms before the final booking action:
+
+- the full customized price is charged when the customer books;
+- cancellation more than three hours before the scheduled appointment receives
+  a full refund;
+- cancellation three hours or less before the scheduled appointment retains a
+  $25 fee and refunds the remaining prepaid amount;
+- rescheduling has no fee or advance deadline and is subject to availability;
+- recurring selections authorize automatic charges and may be paused or ended
+  through the customer portal;
+- customer-approved additional cleaning, taxes, and tips may result in
+  additional charges.
+
+Do not describe a company-wide insurance policy. Each cleaning professional is
+required to maintain their own liability coverage, and no fixed coverage amount
+has been represented.
+
+### Data-retention operations
+
+The public Privacy Policy must match the account's actual handling:
+
+- after a one-time job, delete door codes and sensitive entry instructions once
+  any immediate access, safety, or service issue is resolved;
+- for recurring service, retain those instructions only while the relationship
+  remains active and delete them after it ends;
+- retain booking, payment, consent, tax, and dispute records only as reasonably
+  necessary for the stated business and legal purposes;
+- keep a record of each Terms, recurring-payment, and marketing consent version
+  with its acceptance time;
+- route access, correction, deletion, targeted-advertising opt-out, and appeal
+  requests sent to `contact@caramelcleaners.com` to an owner.
 
 ## 8. Confirmation and attribution
 
@@ -229,4 +261,7 @@ Complete these checks on desktop and mobile:
 - payment succeeds in the provider's test mode;
 - a completed test redirects to `/thank-you/`;
 - confirmation email or SMS contains the expected booking details;
+- the Terms acceptance is unchecked by default, required, linked, and recorded
+  with the policy version and acceptance time;
+- recurring bookings display and record the automatic-payment authorization;
 - no iframe interaction or customer information is read by site analytics.

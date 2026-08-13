@@ -56,6 +56,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.ok((html.match(/href="\.\/faq\/"/g) ?? []).length >= 2);
   assert.match(html, /href="\.\/privacy\/"/);
   assert.match(html, /href="\.\/terms\/"/);
+  assert.ok((html.match(/href="\.\/account\/"/g) ?? []).length >= 2);
+  assert.match(html, /Client login/);
   assert.equal((html.match(/class="service-number">[123]<\/span>/g) ?? []).length, 3);
   assert.doesNotMatch(html, /class="service-number">0[123]<\/span>/);
   assert.match(html, /id="standards"/);
@@ -334,6 +336,10 @@ test("renders complete legal pages and site-wide legal links", async () => {
     "utf8",
   );
   const termsHtml = await readFile(new URL("terms/index.html", output), "utf8");
+  const accountHtml = await readFile(
+    new URL("account/index.html", output),
+    "utf8",
+  );
 
   for (const html of [
     homeHtml,
@@ -341,6 +347,7 @@ test("renders complete legal pages and site-wide legal links", async () => {
     faqHtml,
     bookingHtml,
     confirmationHtml,
+    accountHtml,
   ]) {
     assert.match(html, /Privacy Policy/);
     assert.match(html, /Terms of Service/);
@@ -375,6 +382,41 @@ test("renders complete legal pages and site-wide legal links", async () => {
   assert.match(termsHtml, /class-action waiver/);
   assert.match(termsHtml, /own liability insurance/);
   assert.doesNotMatch(termsHtml, /\$1,000,000/);
+});
+
+test("renders the embedded BookingKoala client login portal", async () => {
+  const html = await readFile(new URL("account/index.html", output), "utf8");
+  const analytics = await readFile(
+    new URL("components/analytics-bridge.tsx", source),
+    "utf8",
+  );
+
+  assert.match(html, /<title>Client Portal \| Caramel Cleaners<\/title>/i);
+  assert.match(html, /name="robots" content="noindex, follow"/);
+  assert.match(html, /Manage your clean in one secure place/);
+  assert.match(html, /Upcoming cleans/);
+  assert.match(html, /Recurring service/);
+  assert.match(html, /Payment methods/);
+  assert.match(html, /same email address used for your booking/);
+  assert.match(
+    html,
+    /src="https:\/\/caramelcleaners\.bookingkoala\.com\/login\?embed=true"/,
+  );
+  assert.doesNotMatch(html, /signup\?embed=true/);
+  assert.match(
+    html,
+    /src="https:\/\/caramelcleaners\.bookingkoala\.com\/resources\/embed\.js"/,
+  );
+  assert.match(html, /title="Sign in to the Caramel Cleaners client portal"/);
+  assert.match(html, /height="800"/);
+  assert.match(html, /allow="payment \*"/);
+  assert.match(
+    html,
+    /href="https:\/\/caramelcleaners\.bookingkoala\.com\/login"/,
+  );
+  assert.match(html, /Open the secure client portal/);
+  assert.match(html, /aria-current="page"[^>]*>Client login/);
+  assert.match(analytics, /client_portal_page_view/);
 });
 
 test("renders the post-booking confirmation route", async () => {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
-import LegalFooterLinks from "../components/legal-footer-links";
+import FooterLinks from "../components/footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -112,6 +112,12 @@ export default function FaqPage() {
             <a href="./" aria-current="page">
               FAQ
             </a>
+            <a
+              href="../account/"
+              data-analytics-event="client_portal_click"
+            >
+              Client login
+            </a>
             <a href="../#contact">Contact</a>
           </nav>
 
@@ -207,7 +213,7 @@ export default function FaqPage() {
             <a href="./" aria-current="page">
               Frequently asked questions
             </a>
-            <LegalFooterLinks rootHref="../" />
+            <FooterLinks rootHref="../" />
             <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
-import LegalFooterLinks from "../components/legal-footer-links";
+import FooterLinks from "../components/footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -65,7 +65,7 @@ export default function ThankYouPage() {
           <a href="mailto:contact@caramelcleaners.com">
             contact@caramelcleaners.com
           </a>
-          <LegalFooterLinks rootHref="../" />
+          <FooterLinks rootHref="../" />
           <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
         </div>
       </footer>

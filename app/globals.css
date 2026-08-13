@@ -321,7 +321,7 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 28px;
 }
 
 .site-nav a,
@@ -1407,7 +1407,6 @@ summary:focus-visible {
   margin: 0 0 18px;
   padding: 16px 20px;
   border: 1px solid var(--line);
-  border-left: 4px solid var(--caramel);
   border-radius: 14px;
   background: rgb(255 253 250 / 72%);
   color: var(--muted);
@@ -1419,6 +1418,66 @@ summary:focus-visible {
   color: var(--ink);
   font-weight: 700;
   text-underline-offset: 4px;
+}
+
+.portal-intro {
+  max-width: 1000px;
+}
+
+.portal-intro-copy {
+  max-width: 760px;
+  margin: 32px 0 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.portal-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 24px;
+}
+
+.portal-benefits article {
+  min-height: 210px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 12% -30%, rgb(255 255 255 / 90%), transparent 55%),
+    rgb(255 253 250 / 58%);
+}
+
+.portal-benefits span {
+  color: var(--caramel-dark);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.portal-benefits h2 {
+  margin: 34px 0 10px;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.portal-benefits p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.portal-security-note {
+  margin: 0 0 18px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgb(255 253 250 / 72%);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .booking-embed {
@@ -1441,6 +1500,10 @@ summary:focus-visible {
 
 .booking-frame.is-loading {
   opacity: 0;
+}
+
+.portal-frame {
+  min-height: 800px;
 }
 
 .booking-loading {
@@ -1695,7 +1758,8 @@ summary:focus-visible {
 
 .legal-uppercase {
   padding: 20px;
-  border-left: 4px solid var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
   background: rgb(33 30 27 / 5%);
   color: var(--ink) !important;
   font-size: 14px !important;
@@ -2739,6 +2803,23 @@ summary:focus-visible {
   .booking-intro-heading {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .portal-intro-copy {
+    margin-top: 26px;
+    font-size: 17px;
+  }
+
+  .portal-benefits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portal-benefits article {
+    min-height: 0;
+  }
+
+  .portal-benefits h2 {
+    margin-top: 24px;
   }
 
   .legal-main {

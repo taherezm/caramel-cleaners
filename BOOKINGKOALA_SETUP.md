@@ -242,7 +242,26 @@ later, its `frame-src` directive must allow the exact BookingKoala form origin.
 Also confirm that the BookingKoala URL is permitted to render in an iframe on
 the GitHub Pages domain.
 
-## 10. Launch QA
+## 10. Customer portal embed
+
+`/account/` embeds the BookingKoala login form at:
+
+`https://caramelcleaners.bookingkoala.com/login?embed=true`
+
+Use the login form, not the separate `/signup` form, for returning customers.
+The login form takes customers into their BookingKoala dashboard after they
+authenticate. Confirm the exact login embed code under:
+
+`Settings > Design Forms & Website > Embed Forms`
+
+In BookingKoala's customer settings, enable the dashboard actions Caramel
+Cleaners intends to offer, including recurring-service management,
+rescheduling or cancellation rules, and adding or updating payment methods.
+Test with a real customer test account. The optional local override is:
+
+`NEXT_PUBLIC_BOOKINGKOALA_LOGIN_URL=https://caramelcleaners.bookingkoala.com/login?embed=true`
+
+## 11. Launch QA
 
 Complete these checks on desktop and mobile:
 
@@ -260,6 +279,11 @@ Complete these checks on desktop and mobile:
 - unavailable dates cannot be selected;
 - payment succeeds in the provider's test mode;
 - a completed test redirects to `/thank-you/`;
+- the Client login links open `/account/`;
+- an existing customer can sign in through the embedded login form;
+- the customer dashboard exposes only the intended booking, recurring-service,
+  and payment-method controls;
+- the external portal fallback opens the same secure login form;
 - confirmation email or SMS contains the expected booking details;
 - the Terms acceptance is unchecked by default, required, linked, and recorded
   with the policy version and acceptance time;

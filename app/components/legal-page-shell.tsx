@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import LegalFooterLinks from "./legal-footer-links";
+import FooterLinks from "./footer-links";
 import LogoMark from "./logo-mark";
 
 type LegalPageShellProps = {
@@ -87,7 +87,7 @@ export default function LegalPageShell({
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
             <a href="../checklist/">Cleaning checklist</a>
             <a href="../faq/">Frequently asked questions</a>
-            <LegalFooterLinks current={current} rootHref="../" />
+            <FooterLinks current={current} rootHref="../" />
             <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>

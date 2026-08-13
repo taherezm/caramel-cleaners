@@ -249,7 +249,7 @@ test("renders the frequently asked questions page", async () => {
   assert.match(css, /\.faq-contact\s*\{/);
 });
 
-test("renders a dedicated booking page with a safe missing-config state", async () => {
+test("renders a dedicated booking page with the live BookingKoala form", async () => {
   const html = await readFile(new URL("book/index.html", output), "utf8");
 
   assert.match(html, /<title>Book Your Clean \| Caramel Cleaners<\/title>/i);
@@ -289,7 +289,22 @@ test("renders a dedicated booking page with a safe missing-config state", async 
     html,
     /class="logo-mark-button logo-mark-header" href="\.\.\/" aria-label="Caramel Cleaners home"/,
   );
-  assert.match(html, /Online booking is being connected/);
+  assert.match(
+    html,
+    /src="https:\/\/caramelcleaners\.bookingkoala\.com\/booknow\?embed=true"/,
+  );
+  assert.match(
+    html,
+    /src="https:\/\/caramelcleaners\.bookingkoala\.com\/resources\/embed\.js"/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/caramelcleaners\.bookingkoala\.com\/booknow"/,
+  );
+  assert.match(html, /title="Book a cleaning service with Caramel Cleaners"/);
+  assert.match(html, /height="1000"/);
+  assert.match(html, /scrolling="no"/);
+  assert.doesNotMatch(html, /Online booking is being connected/);
   assert.match(html, /ui-arrow ui-arrow-down-left/);
   assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
   assert.doesNotMatch(html, /https:\/\/example\.com|fake|placeholder/i);

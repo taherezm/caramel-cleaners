@@ -1,9 +1,7 @@
 # Caramel Cleaners
 
 The current site helps customers compare cleaning services, understand the
-company's cleaner standards, and see how the online booking process will work.
-The BookingKoala integration is implemented, but the live form URL still needs
-to be configured before customers can complete a booking.
+company's cleaner standards, and complete a booking through BookingKoala.
 
 ## Current experience
 
@@ -14,10 +12,8 @@ to be configured before customers can complete a booking.
   service-by-service task lists, exclusions, and arrival preparation guidance.
 - `/faq/` — categorized answers about services, pricing, supplies, scheduling,
   safety, recurring cleaning, and the satisfaction promise.
-- `/book/` — branded booking page. The live deployment currently shows the
-  safe missing-configuration state; after an HTTPS BookingKoala URL is added,
-  it provides a responsive iframe, loading state, and link to open the secure
-  form in a separate window.
+- `/book/` — branded booking page with the live BookingKoala form, responsive
+  resizing, a loading state, and a link to open the secure form separately.
 - `/thank-you/` — post-booking confirmation page.
 - Responsive desktop and mobile layouts, including a mobile booking dock.
 - Accessible skip links, focus handling, reduced-motion support, native
@@ -49,20 +45,19 @@ pnpm install
 pnpm dev
 ```
 
-To connect the booking form locally, copy the example environment file and add
-the HTTPS form URL from BookingKoala:
+The production BookingKoala URL is built in. To test a different HTTPS embed
+URL locally, copy the example environment file and change its value:
 
 ```bash
 cp .env.example .env.local
 ```
 
 ```dotenv
-NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL=https://your-bookingkoala-form-url
+NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL=https://caramelcleaners.bookingkoala.com/booknow?embed=true
 ```
 
-Restart the development server after changing the environment variable. When
-the variable is missing, malformed, or does not use HTTPS, `/book/` displays a
-safe "Online booking is being connected" message instead of an iframe.
+Restart the development server after changing the environment variable. A
+missing or malformed value falls back to the production form.
 
 ## Commands
 

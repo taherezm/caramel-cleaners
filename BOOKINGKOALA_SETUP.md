@@ -1,9 +1,8 @@
 # BookingKoala setup for Caramel Cleaners
 
-The website side of the booking experience is ready. `/book/` provides the
-branded introduction, loading state, responsive iframe, missing-configuration
-message, and external-form fallback. `/thank-you/` is ready to receive completed
-bookings.
+The website side of the booking experience is connected. `/book/` provides the
+branded introduction, loading state, responsive BookingKoala iframe, and
+external-form fallback. `/thank-you/` is ready to receive completed bookings.
 
 No BookingKoala account settings were changed from this repository. The steps
 below must be completed by an authorized BookingKoala administrator.
@@ -189,27 +188,22 @@ Each event is dispatched as `caramel:analytics` and is also pushed to
 `window.dataLayer` if a future analytics installation provides one. No
 analytics vendor was added.
 
-## 9. Connect the embed
+## 9. Booking embed
 
-In BookingKoala, open **Settings → Design Forms & Website → Embed Forms** and
-copy the HTTPS form URL from the generated iframe code.
+The production site uses:
+
+`https://caramelcleaners.bookingkoala.com/booknow?embed=true`
+
+The BookingKoala resize helper is loaded from the same account domain.
 
 For local development:
 
 1. Copy `.env.example` to `.env.local`.
-2. Set `NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL` to the copied HTTPS URL.
+2. Set `NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL` to the HTTPS URL you want to test.
 3. Restart the local development server.
 
-For GitHub Pages:
-
-1. Open the repository on GitHub.
-2. Go to **Settings → Secrets and variables → Actions → Variables**.
-3. Create `NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL` with the copied HTTPS URL.
-4. Re-run the Pages workflow or push a new commit.
-
-The build intentionally shows a clear “Online booking is being connected”
-message when the variable is missing or is not an HTTPS URL. There is no fake
-production URL in the codebase.
+The environment variable remains optional for testing another form. A missing
+or invalid value falls back to the production URL above.
 
 The repository currently has no Content Security Policy. If one is added
 later, its `frame-src` directive must allow the exact BookingKoala form origin.

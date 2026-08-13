@@ -5,6 +5,9 @@ import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
 
+const BOOKINGKOALA_EMBED_URL =
+  "https://caramelcleaners.bookingkoala.com/booknow?embed=true";
+
 export const metadata: Metadata = {
   title: "Book Your Clean",
   description:
@@ -18,14 +21,14 @@ function getBookingEmbedUrl() {
   const value = process.env.NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL?.trim();
 
   if (!value) {
-    return undefined;
+    return BOOKINGKOALA_EMBED_URL;
   }
 
   try {
     const url = new URL(value);
-    return url.protocol === "https:" ? url.toString() : undefined;
+    return url.protocol === "https:" ? url.toString() : BOOKINGKOALA_EMBED_URL;
   } catch {
-    return undefined;
+    return BOOKINGKOALA_EMBED_URL;
   }
 }
 

@@ -1399,8 +1399,7 @@ summary:focus-visible {
   white-space: nowrap;
 }
 
-.booking-embed,
-.booking-unavailable {
+.booking-embed {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1409,13 +1408,9 @@ summary:focus-visible {
   box-shadow: var(--shadow);
 }
 
-.booking-embed {
-  min-height: 1180px;
-}
-
 .booking-frame {
   width: 100%;
-  min-height: 1180px;
+  min-height: 1000px;
   display: block;
   border: 0;
   background: var(--white);
@@ -1470,49 +1465,6 @@ summary:focus-visible {
   color: var(--ink);
   font-weight: 700;
   text-underline-offset: 4px;
-}
-
-.booking-unavailable {
-  min-height: 300px;
-  display: grid;
-  grid-template-columns: 78px minmax(0, 1fr);
-  align-items: center;
-  gap: 30px;
-  padding: 55px;
-  border-color: var(--glass-border);
-  background:
-    radial-gradient(circle at 12% 0%, rgb(255 255 255 / 96%), transparent 42%),
-    linear-gradient(140deg, var(--glass-fill), rgb(247 242 235 / 40%));
-  box-shadow: var(--glass-shadow);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  backdrop-filter: blur(24px) saturate(150%);
-}
-
-.booking-unavailable-mark {
-  width: 78px;
-  height: 78px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--caramel);
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.booking-unavailable h2 {
-  margin: 0 0 12px;
-  font-size: 31px;
-  font-weight: 400;
-  letter-spacing: -0.035em;
-}
-
-.booking-unavailable p {
-  max-width: 590px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.55;
 }
 
 .booking-footer {
@@ -2627,34 +2579,11 @@ summary:focus-visible {
   }
 
   .booking-embed {
-    min-height: 1450px;
     border-radius: 24px;
   }
 
   .booking-frame {
-    min-height: 1450px;
-  }
-
-  .booking-unavailable {
-    min-height: 330px;
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 34px 26px;
-    border-radius: 24px;
-  }
-
-  .booking-unavailable-mark {
-    width: 62px;
-    height: 62px;
-    font-size: 31px;
-  }
-
-  .booking-unavailable h2 {
-    font-size: 27px;
-  }
-
-  .booking-unavailable p {
-    font-size: 15px;
+    min-height: 1000px;
   }
 
   .booking-footer {

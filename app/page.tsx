@@ -1,4 +1,5 @@
 import ArrowIcon from "./components/arrow-icon";
+import LegalFooterLinks from "./components/legal-footer-links";
 import LogoMark from "./components/logo-mark";
 import MobileBookDock from "./components/mobile-book-dock";
 import SectionLink from "./components/section-link";
@@ -201,9 +202,9 @@ export default function Home() {
               </h2>
               <p>
                 A clean home should come with peace of mind. Every Caramel
-                Cleaner is carefully vetted, extensively
-                background-checked, and covered by liability insurance before
-                they are trusted in a client’s home.
+                Cleaner is carefully vetted, extensively background-checked,
+                and required to carry their own liability insurance before they
+                are trusted in a client’s home.
               </p>
               <a
                 className="trust-link"
@@ -240,11 +241,11 @@ export default function Home() {
               <li>
                 <span>03</span>
                 <div>
-                  <h3>Liability insured</h3>
+                  <h3>Cleaner-carried coverage</h3>
                   <p>
-                    Covered by a $1,000,000 general liability policy for added
-                    protection in the unlikely event of accidental property
-                    damage during your appointment.
+                    Each cleaning professional is required to maintain their own
+                    liability insurance for added protection in the unlikely
+                    event of accidental property damage.
                   </p>
                 </div>
               </li>
@@ -470,7 +471,8 @@ export default function Home() {
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
             <a href="./checklist/">Cleaning checklist</a>
             <a href="./faq/">Frequently asked questions</a>
-            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+            <LegalFooterLinks rootHref="./" />
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>
       </div>

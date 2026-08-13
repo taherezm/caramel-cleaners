@@ -32,7 +32,7 @@ test("renders a focused Caramel Cleaners homepage", async () => {
     html,
     /Now cleaning homes in Carmel, Westfield, Zionsville, Noblesville, and Fishers, Indiana/,
   );
-  assert.match(html, /© 2026 Caramel Cleaners\. All rights reserved\./);
+  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
   assert.doesNotMatch(html, /id="service-area"/);
   assert.doesNotMatch(html, /Home cleaning built around our local communities/);
   assert.match(html, /Routine Clean/);
@@ -54,6 +54,8 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.doesNotMatch(html, /—/);
   assert.ok((html.match(/href="\.\/checklist\/"/g) ?? []).length >= 3);
   assert.ok((html.match(/href="\.\/faq\/"/g) ?? []).length >= 2);
+  assert.match(html, /href="\.\/privacy\/"/);
+  assert.match(html, /href="\.\/terms\/"/);
   assert.equal((html.match(/class="service-number">[123]<\/span>/g) ?? []).length, 3);
   assert.doesNotMatch(html, /class="service-number">0[123]<\/span>/);
   assert.match(html, /id="standards"/);
@@ -62,9 +64,10 @@ test("renders a focused Caramel Cleaners homepage", async () => {
   assert.doesNotMatch(html, /Every Caramel Cleaners professional/);
   assert.match(html, /carefully vetted/);
   assert.match(html, /extensively background-checked/);
-  assert.match(html, /covered by liability insurance/);
-  assert.match(html, /Liability insured/);
-  assert.match(html, /Covered by a \$1,000,000 general liability policy/);
+  assert.match(html, /required to carry their own liability insurance/);
+  assert.match(html, /Cleaner-carried coverage/);
+  assert.match(html, /required to maintain their own liability insurance/);
+  assert.doesNotMatch(html, /\$1,000,000 general liability policy/);
   assert.match(html, /clear communication/);
   assert.match(html, /Identity and criminal-history screening/);
   assert.match(html, /accidental property damage/);
@@ -242,6 +245,7 @@ test("renders the frequently asked questions page", async () => {
   assert.match(html, /<details class="faq-item" open=""/);
   assert.doesNotMatch(html, /bonded|COVID-19|social distancing/);
   assert.match(html, /within 24 hours/);
+  assert.match(html, /required to maintain their own liability insurance/);
   assert.match(html, /contact@caramelcleaners\.com/);
   assert.match(html, /aria-current="page">FAQ/);
   assert.match(css, /\.faq-section\s*\{/);
@@ -266,7 +270,7 @@ test("renders a dedicated booking page with the live BookingKoala form", async (
   assert.doesNotMatch(html, /Scheduling that fits your life/);
   assert.doesNotMatch(html, /Locally serving/);
   assert.doesNotMatch(html, /Tell us about your home as accurately as you can/);
-  assert.match(html, /© 2026 Caramel Cleaners\. All rights reserved\./);
+  assert.match(html, /© 2026 Caramel Cleaners LLC\. All rights reserved\./);
   assert.doesNotMatch(html, /brand-descriptor|>Housecleaning</);
   assert.match(html, /Questions, event cleans, special requests, partnerships/);
   assert.match(html, /class="booking-contact-copy"/);
@@ -308,6 +312,69 @@ test("renders a dedicated booking page with the live BookingKoala form", async (
   assert.match(html, /ui-arrow ui-arrow-down-left/);
   assert.doesNotMatch(html, /[↗↘↙↖→←↑↓]/);
   assert.doesNotMatch(html, /https:\/\/example\.com|fake|placeholder/i);
+  assert.match(html, /By submitting a booking/);
+  assert.match(html, /href="\.\.\/terms\/"/);
+  assert.match(html, /href="\.\.\/privacy\/"/);
+});
+
+test("renders complete legal pages and site-wide legal links", async () => {
+  const homeHtml = await readFile(new URL("index.html", output), "utf8");
+  const checklistHtml = await readFile(
+    new URL("checklist/index.html", output),
+    "utf8",
+  );
+  const faqHtml = await readFile(new URL("faq/index.html", output), "utf8");
+  const bookingHtml = await readFile(new URL("book/index.html", output), "utf8");
+  const confirmationHtml = await readFile(
+    new URL("thank-you/index.html", output),
+    "utf8",
+  );
+  const privacyHtml = await readFile(
+    new URL("privacy/index.html", output),
+    "utf8",
+  );
+  const termsHtml = await readFile(new URL("terms/index.html", output), "utf8");
+
+  for (const html of [
+    homeHtml,
+    checklistHtml,
+    faqHtml,
+    bookingHtml,
+    confirmationHtml,
+  ]) {
+    assert.match(html, /Privacy Policy/);
+    assert.match(html, /Terms of Service/);
+  }
+
+  assert.match(
+    privacyHtml,
+    /<title>Privacy Policy \| Caramel Cleaners<\/title>/i,
+  );
+  assert.match(privacyHtml, /Effective and last updated August 13, 2026/);
+  assert.match(privacyHtml, /We do not sell personal information for money/);
+  assert.match(privacyHtml, /BookingKoala/);
+  assert.match(privacyHtml, /Stripe/);
+  assert.match(privacyHtml, /GitHub Pages/);
+  assert.match(privacyHtml, /Google Ads/);
+  assert.match(privacyHtml, /enhanced conversions/);
+  assert.match(privacyHtml, /targeted advertising/);
+  assert.match(privacyHtml, /Privacy Appeal/);
+  assert.match(privacyHtml, /door codes/);
+
+  assert.match(
+    termsHtml,
+    /<title>Terms of Service \| Caramel Cleaners<\/title>/i,
+  );
+  assert.match(termsHtml, /Caramel Cleaners LLC/);
+  assert.match(termsHtml, /minimum booking price is \$149/);
+  assert.match(termsHtml, /full booking price is charged when you book/);
+  assert.match(termsHtml, /more than three hours/);
+  assert.match(termsHtml, /\$25 cancellation fee/);
+  assert.match(termsHtml, /Twenty-four-hour satisfaction promise/);
+  assert.match(termsHtml, /Hamilton County/);
+  assert.match(termsHtml, /class-action waiver/);
+  assert.match(termsHtml, /own liability insurance/);
+  assert.doesNotMatch(termsHtml, /\$1,000,000/);
 });
 
 test("renders the post-booking confirmation route", async () => {

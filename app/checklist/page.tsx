@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
+import LegalFooterLinks from "../components/legal-footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -532,7 +533,8 @@ export default function ChecklistPage() {
               Cleaning checklist
             </a>
             <a href="../faq/">Frequently asked questions</a>
-            <p>© 2026 Caramel Cleaners. All rights reserved.</p>
+            <LegalFooterLinks rootHref="../" />
+            <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>
       </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ArrowIcon from "../components/arrow-icon";
 import BookingEmbed from "../components/booking-embed";
-import LegalFooterLinks from "../components/legal-footer-links";
+import FooterLinks from "../components/footer-links";
 import LogoMark from "../components/logo-mark";
 
 export const dynamic = "force-static";
@@ -124,7 +124,7 @@ export default function BookingPage() {
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
             <a href="../checklist/">Cleaning checklist</a>
             <a href="../faq/">Frequently asked questions</a>
-            <LegalFooterLinks rootHref="../" />
+            <FooterLinks rootHref="../" />
             <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>

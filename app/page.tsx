@@ -1,5 +1,5 @@
 import ArrowIcon from "./components/arrow-icon";
-import LegalFooterLinks from "./components/legal-footer-links";
+import FooterLinks from "./components/footer-links";
 import LogoMark from "./components/logo-mark";
 import MobileBookDock from "./components/mobile-book-dock";
 import SectionLink from "./components/section-link";
@@ -123,6 +123,12 @@ export default function Home() {
             <SectionLink targetId="recurring">Recurring plans</SectionLink>
             <a href="./checklist/">Checklist</a>
             <a href="./faq/">FAQ</a>
+            <a
+              href="./account/"
+              data-analytics-event="client_portal_click"
+            >
+              Client login
+            </a>
             <SectionLink targetId="contact">Contact</SectionLink>
           </nav>
 
@@ -471,7 +477,7 @@ export default function Home() {
             <a href="sms:+14632244181">Text: (463) 224-4181</a>
             <a href="./checklist/">Cleaning checklist</a>
             <a href="./faq/">Frequently asked questions</a>
-            <LegalFooterLinks rootHref="./" />
+            <FooterLinks rootHref="./" />
             <p>© 2026 Caramel Cleaners LLC. All rights reserved.</p>
           </div>
         </footer>

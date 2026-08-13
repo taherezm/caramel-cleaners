@@ -29,6 +29,10 @@ export default function AnalyticsBridge() {
       emitSiteEvent("completed_booking_page_view");
     }
 
+    if (normalizedPath.endsWith("/account")) {
+      emitSiteEvent("client_portal_page_view");
+    }
+
     const handleClick = (event: MouseEvent) => {
       const target = event.target as Element | null;
       const trackedElement = target?.closest<HTMLElement>(

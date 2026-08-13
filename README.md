@@ -14,6 +14,8 @@ company's cleaner standards, and complete a booking through BookingKoala.
   safety, recurring cleaning, and the satisfaction promise.
 - `/book/` — branded booking page with the live BookingKoala form, responsive
   resizing, a loading state, and a link to open the secure form separately.
+- `/account/` — embedded BookingKoala customer login for managing appointments,
+  recurring service, and saved payment methods.
 - `/thank-you/` — post-booking confirmation page.
 - `/privacy/` — privacy disclosures, retention practices, advertising choices,
   and a process for customer privacy requests.
@@ -58,6 +60,7 @@ cp .env.example .env.local
 
 ```dotenv
 NEXT_PUBLIC_BOOKINGKOALA_EMBED_URL=https://caramelcleaners.bookingkoala.com/booknow?embed=true
+NEXT_PUBLIC_BOOKINGKOALA_LOGIN_URL=https://caramelcleaners.bookingkoala.com/login?embed=true
 ```
 
 Restart the development server after changing the environment variable. A
@@ -79,6 +82,7 @@ missing or malformed value falls back to the production form.
 ```text
 app/
   page.tsx                  Homepage
+  account/page.tsx          Customer login portal
   book/page.tsx             Booking experience
   checklist/page.tsx        Complete cleaning scope
   privacy/page.tsx          Privacy Policy
@@ -104,6 +108,9 @@ The site emits these browser events:
 - `booking_page_view`
 - `booking_fallback_click`
 - `completed_booking_page_view`
+- `client_portal_click`
+- `client_portal_page_view`
+- `client_portal_fallback_click`
 
 See [BOOKINGKOALA_SETUP.md](./BOOKINGKOALA_SETUP.md) for service pricing,
 BookingKoala form configuration, manual-review rules, analytics behavior, and
